@@ -27,8 +27,6 @@
     }
     p {
         text-align: center;
-        font-size: 14px;
-        color: #555;
         margin-bottom: 20px;
     }
     input {
@@ -51,19 +49,29 @@
     }
     #goBtn { background-color: #4CAF50; color: white; }
     #clearBtn { background-color: #f44336; color: white; }
-    #homeBtn { background-color: #FF9800; color: white; }
+    #homeBtn { background-color: #2196F3; color: white; width: 100%; margin-top: 10px; }
+    .dailyBtn { background-color: #FF9800; color: white; width: 100%; margin-top: 5px; }
 </style>
 </head>
 <body>
 <div class="container">
     <h2>傲神美团外卖领券</h2>
     <p>WeChat: <strong>aonb9999</strong></p>
-    <input type="text" id="inputBox" placeholder="请粘贴外卖店铺链接">
+
+    <!-- 第一个输入框：用户粘贴链接 -->
+    <input type="text" id="pasteBox" placeholder="请粘贴外卖店铺链接">
+
+    <!-- 第二个输入框：生成的领券链接 -->
+    <input type="text" id="linkBox" placeholder="生成的领券链接" readonly>
+
     <div>
-        <button id="goBtn">Go</button>
-        <button id="clearBtn">删除</button>
-        <button id="homeBtn">前往美团外卖主页</button>
+        <button id="goBtn">Go 跳转领券</button>
+        <button id="clearBtn">清空</button>
     </div>
+
+    <button id="homeBtn">进入美团外卖主页</button>
+    <button id="daily1Btn" class="dailyBtn">每日领券1</button>
+    <button id="daily2Btn" class="dailyBtn">每日领券2</button>
 </div>
 
 <script>
@@ -71,29 +79,31 @@ let extractedPoiId = "";
 
 // 自动识别店铺ID函数
 function extractPoiId(text) {
-    // 支持 poi_id_str= 或 poi_id=
     let match = text.match(/poi_id_str=([\w\-_]+)/i) || text.match(/poi_id=([\w\-_]+)/i);
     return match ? match[1] : "";
 }
 
-const inputBox = document.getElementById("inputBox");
+const pasteBox = document.getElementById("pasteBox");
+const linkBox = document.getElementById("linkBox");
 const goBtn = document.getElementById("goBtn");
 const clearBtn = document.getElementById("clearBtn");
 const homeBtn = document.getElementById("homeBtn");
+const daily1Btn = document.getElementById("daily1Btn");
+const daily2Btn = document.getElementById("daily2Btn");
 
 // 粘贴事件
-inputBox.addEventListener("paste", (e) => {
+pasteBox.addEventListener("paste", (e) => {
     e.preventDefault();
     let pastedData = (e.clipboardData || window.clipboardData).getData('text');
     extractedPoiId = extractPoiId(pastedData);
     if (extractedPoiId) {
-        inputBox.value = "粘贴成功，请点 Go 跳转领券";
+        linkBox.value = "粘贴成功，请点 Go 跳转领券";
     } else {
-        inputBox.value = "未识别到店铺，请重新粘贴";
+        linkBox.value = "未识别到店铺ID，请重新粘贴";
     }
 });
 
-// Go 按钮点击跳转
+// Go 跳转领券
 goBtn.addEventListener("click", () => {
     if (!extractedPoiId) {
         alert("请先粘贴包含店铺ID的链接！");
@@ -103,15 +113,24 @@ goBtn.addEventListener("click", () => {
     window.location.href = link;
 });
 
-// 删除按钮
+// 清空
 clearBtn.addEventListener("click", () => {
-    inputBox.value = "";
+    pasteBox.value = "";
+    linkBox.value = "";
     extractedPoiId = "";
 });
 
-// 前往美团外卖主页按钮
+// 跳转主页
 homeBtn.addEventListener("click", () => {
-    window.open("https://h5.waimai.meituan.com/waimai/mindex/home", "_blank");
+    window.location.href = "https://h5.waimai.meituan.com/waimai/mindex/home";
+});
+
+// 每日领券按钮
+daily1Btn.addEventListener("click", () => {
+    window.location.href = "http://dpurl.cn/cbLCt9Ez";
+});
+daily2Btn.addEventListener("click", () => {
+    window.location.href = "http://dpurl.cn/qarNGdhz";
 });
 </script>
 </body>
