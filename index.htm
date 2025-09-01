@@ -23,6 +23,12 @@
     }
     h2 {
         text-align: center;
+        margin-bottom: 10px;
+    }
+    p {
+        text-align: center;
+        font-size: 14px;
+        color: #555;
         margin-bottom: 20px;
     }
     input {
@@ -63,7 +69,7 @@ let extractedPoiId = "";
 
 // 自动识别店铺ID函数
 function extractPoiId(text) {
-    // 识别 poi_id_str=xxxx 或 poi_id=xxxx 的格式
+    // 支持 poi_id_str= 或 poi_id=
     let match = text.match(/poi_id_str=([\w\-_]+)/i) || text.match(/poi_id=([\w\-_]+)/i);
     return match ? match[1] : "";
 }
@@ -72,6 +78,7 @@ const inputBox = document.getElementById("inputBox");
 const goBtn = document.getElementById("goBtn");
 const clearBtn = document.getElementById("clearBtn");
 
+// 粘贴事件
 inputBox.addEventListener("paste", (e) => {
     e.preventDefault();
     let pastedData = (e.clipboardData || window.clipboardData).getData('text');
@@ -83,15 +90,17 @@ inputBox.addEventListener("paste", (e) => {
     }
 });
 
+// Go 按钮点击跳转
 goBtn.addEventListener("click", () => {
     if (!extractedPoiId) {
-        alert("请先粘贴外卖店铺的链接！");
+        alert("请先粘贴包含店铺ID的链接！");
         return;
     }
     const link = `https://offsiteact.meituan.com/web/hoae/collection_waimai_v8/index.html?recallBizId=cpsH5Coupon&bizId=224ac1afd8674632ae7b85226f192d82&mediumSrc1=224ac1afd8674632ae7b85226f192d82&scene=CPS_SELF_SRC&pageSrc1=CPS_SELF_OUT_SRC_H5_LINK&pageSrc2=224ac1afd8674632ae7b85226f192d82&pageSrc3=87cc2e50066549689b14888ef3b835a9&activityId=6&mediaPvId=dafkdsajffjafdfs&mediaUserId=10086&outActivityId=6&hoaePageV=8&p=1009457908706648064&poi_id_str=${extractedPoiId}`;
     window.location.href = link;
 });
 
+// 删除按钮
 clearBtn.addEventListener("click", () => {
     inputBox.value = "";
     extractedPoiId = "";
