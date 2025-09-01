@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>傲神美团外卖领券</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f8f8f8;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .container {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        width: 95%;
+        max-width: 500px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    input {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+    button {
+        width: 48%;
+        padding: 12px;
+        font-size: 16px;
+        margin: 5px 1%;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    #goBtn { background-color: #4CAF50; color: white; }
+    #clearBtn { background-color: #f44336; color: white; }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>傲神美团外卖领券</h2>
+    <p>WeChat: <strong>aonb9999</strong></p>
+    <input type="text" id="inputBox" placeholder="请粘贴外卖店铺链接">
+    <div>
+        <button id="goBtn">Go</button>
+        <button id="clearBtn">删除</button>
+    </div>
+</div>
+
+<script>
+let extractedPoiId = "";
+
+// 自动识别店铺ID函数
+function extractPoiId(text) {
+    // 识别 poi_id_str=xxxx 或 poi_id=xxxx 的格式
+    let match = text.match(/poi_id_str=([\w\-_]+)/i) || text.match(/poi_id=([\w\-_]+)/i);
+    return match ? match[1] : "";
+}
+
+const inputBox = document.getElementById("inputBox");
+const goBtn = document.getElementById("goBtn");
+const clearBtn = document.getElementById("clearBtn");
+
+inputBox.addEventListener("paste", (e) => {
+    e.preventDefault();
+    let pastedData = (e.clipboardData || window.clipboardData).getData('text');
+    extractedPoiId = extractPoiId(pastedData);
+    if (extractedPoiId) {
+        inputBox.value = "粘贴成功，请点 Go 跳转领券";
+    } else {
+        inputBox.value = "未识别到店铺，请重新粘贴";
+    }
+});
+
+goBtn.addEventListener("click", () => {
+    if (!extractedPoiId) {
+        alert("请先粘贴外卖店铺的链接！");
+        return;
+    }
+    const link = `https://offsiteact.meituan.com/web/hoae/collection_waimai_v8/index.html?recallBizId=cpsH5Coupon&bizId=224ac1afd8674632ae7b85226f192d82&mediumSrc1=224ac1afd8674632ae7b85226f192d82&scene=CPS_SELF_SRC&pageSrc1=CPS_SELF_OUT_SRC_H5_LINK&pageSrc2=224ac1afd8674632ae7b85226f192d82&pageSrc3=87cc2e50066549689b14888ef3b835a9&activityId=6&mediaPvId=dafkdsajffjafdfs&mediaUserId=10086&outActivityId=6&hoaePageV=8&p=1009457908706648064&poi_id_str=${extractedPoiId}`;
+    window.location.href = link;
+});
+
+clearBtn.addEventListener("click", () => {
+    inputBox.value = "";
+    extractedPoiId = "";
+});
+</script>
+</body>
+</html>
