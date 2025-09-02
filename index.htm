@@ -259,7 +259,7 @@ document.getElementById("tb1_copyopen").addEventListener("click",async()=>{
 });
 
 /* 淘宝闪购2 */
-const tb2={directUrl:"https://m.duanqu.com/?_ariver_appid=8251537&page=plugin-private%3A%2F%2F2021004134685665%2Fpages%2Ftaoke-guide%2Findex%3Ffrom%3Dminiapp.taobao%26channelInfo%3D%7B%22subSubChannel%22%3A%22miniapp.taobao.et%22%7D%26alsc_exsrc%3DES0006299852%26scene%3D3e168b6f1413446ca66342df8e242cfb", codeText:"淘宝闪购搜:79821", copyOpenText:"27 HU7405   1:/£QLTz4L6aCEn₤欢最高抢66元大红包"};
+const tb2={directUrl:"tbopen://m.taobao.com/tbopen/index.html?&action=ali.open.nav&module=h5&h5Url=https%3A%2F%2Fm.duanqu.com%2F%3F_ariver_appid%3D8251537%26page%3Dplugin-private%253A%252F%252F2021004134685665%252Fpages%252Ftaoke-guide%252Findex%253Ffrom%253Dminiapp.taobao%2526channelInfo%253D%257B%2522subSubChannel%2522%253A%2522miniapp.taobao.et%2522%257D%2526alsc_exsrc%253DES0006299852%2526scene%253D3e168b6f1413446ca66342df8e242cfb", codeText:"淘宝闪购搜:79821", copyOpenText:"27 HU7405   1:/£QLTz4L6aCEn₤欢最高抢66元大红包"};
 document.getElementById("tb2_direct").addEventListener("click",async()=>{
     if(isWeixinBrowser()){ try{ await navigator.clipboard.writeText(tb2.directUrl); alert("链接已复制，请打开浏览器粘贴跳转"); } catch{ alert("复制链接失败，请手动复制"); } }
     else{ window.open(tb2.directUrl,"_blank"); }
