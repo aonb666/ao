@@ -142,7 +142,7 @@ button {
 </div>
 
 <script>
-// 复制冒号后内容
+// 提取冒号后内容
 function extractAfterColon(text){
     const idx = text.indexOf(":");
     return idx!==-1 ? text.slice(idx+1).trim() : text;
@@ -179,17 +179,22 @@ clearBtn.addEventListener("click", ()=>{
 });
 homeBtn.addEventListener("click", ()=>window.location.href="https://h5.waimai.meituan.com/waimai/mindex/home");
 
-/* 美团领券数据 */
+/* 美团/淘宝领券数据 */
 const couponData = [
-    {id:"coupon1", direct:"http://dpurl.cn/dB3Un4Iz", code:"美团app搜:傲神666", copy:"1 %复制信息#% 打开团App http:/¥v8MjgxNzAwZGE¥一起领"},
-    {id:"coupon2", direct:"http://dpurl.cn/UnaXWSpz", code:"美团app搜:79821", copy:"1 %复制信息#% 打开团App http:/¥djZDhmODI2Mjg¥一起领"},
-    {id:"tb1", direct:"tbopen://m.taobao.com/tbopen/index.html?&action=ali.open.nav&module=h5&h5Url=...", code:"淘宝闪购搜:79822", copy:"47 HU7405   2:/£CxNR4L5DK93₤三最高20元，可叠加"}
+    {id:"coupon1", direct:"http://dpurl.cn/dB3Un4Iz", code:"美团app搜:傲神666", copy:"1 %复制信息#% 打开团App http:/¥v8MjgxNzAwZGE¥一起领", app:"imeituan://"},
+    {id:"coupon2", direct:"http://dpurl.cn/UnaXWSpz", code:"美团app搜:79821", copy:"1 %复制信息#% 打开团App http:/¥djZDhmODI2Mjg¥一起领", app:"imeituan://"},
+    {id:"tb1", direct:"https://market.m.taobao.com/app/starlink/wakeup-transit/pages/download?star_id=8644&slk_force_set_request=true&scene=e3a01b36513b460590779efb46422076", code:"淘宝闪购搜:79822", copy:"47 HU7405   2:/£CxNR4L5DK93₤三最高20元，可叠加", app:"taobao://"}
 ];
 
 // 生成事件
 couponData.forEach(c=>{
     // 直达
-    document.getElementById(c.id+"_direct").addEventListener("click", ()=>window.open(c.direct,"_blank"));
+    document.getElementById(c.id+"_direct").addEventListener("click", ()=>{
+        let newWin = window.open(c.direct,"_blank");
+        if(!newWin || newWin.closed || typeof newWin.closed=='undefined'){
+            alert("已复制链接，请打开浏览器粘贴跳转");
+        }
+    });
     // 口令
     document.getElementById(c.id+"_showcode").addEventListener("click", async ()=>{
         document.getElementById(c.id+"_text").textContent = c.code;
@@ -205,9 +210,11 @@ couponData.forEach(c=>{
     document.getElementById(c.id+"_copyopen").addEventListener("click", async ()=>{
         try{
             await navigator.clipboard.writeText(c.copy);
-            if(c.id.startsWith("tb")) window.location.href="taobao://";
-            else window.location.href="imeituan://";
-        }catch{ alert("复制失败，请手动复制"); }
+            alert("已复制密令，请打开对应App");
+            window.location.href = c.app;
+        }catch{
+            alert("复制失败，请手动复制："+c.copy);
+        }
     });
 });
 </script>
