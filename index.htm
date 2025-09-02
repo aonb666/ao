@@ -3,219 +3,146 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>傲神美团外卖 & 淘宝闪购领券</title>
+<title>傲神美团/淘宝领券</title>
 <style>
-body {
-    font-family: Arial, sans-serif;
-    background: #f8f8f8;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    width: 95%;
-    max-width: 500px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-h2 { text-align: center; margin-bottom: 10px; }
-p { text-align: center; margin-bottom: 12px; }
-input {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-}
-.btn-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-}
-button {
-    flex: 1;
-    padding: 12px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-#goBtn { background-color: #4CAF50; color: white; }
-#clearBtn { background-color: #f44336; color: white; }
-#homeBtn { background-color: #2196F3; color: white; width: 100%; margin-top: 10px; }
+body { font-family: Arial, sans-serif; background:#f8f8f8; padding:20px; display:flex; flex-direction:column; align-items:center;}
+.container { background:#fff; padding:20px; border-radius:8px; width:95%; max-width:500px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+h2 { text-align:center; margin-bottom:10px; }
+p { text-align:center; margin-bottom:12px; }
+input { width:100%; padding:12px; font-size:16px; border-radius:4px; border:1px solid #ccc; margin-bottom:10px; box-sizing:border-box; }
+.btn-row { display:flex; justify-content:space-between; gap:10px; }
+button { flex:1; padding:12px; font-size:16px; border:none; border-radius:4px; cursor:pointer; }
+#goBtn { background-color:#4CAF50; color:white; }
+#clearBtn { background-color:#f44336; color:white; }
+#homeBtn { background-color:#2196F3; color:white; width:100%; margin-top:10px; }
 
 /* coupon card 样式 */
-.coupon-card {
-    margin-top: 14px;
-    padding: 12px;
-    border-radius: 8px;
-    background: #fff;
-    border: 1px solid #eee;
-}
-.coupon-title {
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-.coupon-actions {
-    display:flex;
-    gap:8px;
-    margin-bottom:8px;
-}
+.coupon-card { margin-top:14px; padding:12px; border-radius:8px; background:#fff; border:1px solid #eee; }
+.coupon-title { font-weight:600; margin-bottom:8px; }
+.coupon-actions { display:flex; gap:8px; margin-bottom:8px; }
 .coupon-actions button { flex:1; padding:10px; font-size:14px; color:#fff; border-radius:6px; }
 .btn-direct { background:#ff7043; }
-.btn-code   { background:#42a5f5; }
-.btn-copy   { background:#66bb6a; }
-
-.coupon-text {
-    width:100%;
-    padding:8px;
-    border-radius:6px;
-    border:1px dashed #ccc;
-    background:#fafafa;
-    word-break:break-all;
-    font-size:14px;
-    color:#333;
-}
+.btn-code { background:#42a5f5; }
+.btn-copy { background:#66bb6a; }
+.coupon-text { width:100%; padding:8px; border-radius:6px; border:1px dashed #ccc; background:#fafafa; word-break:break-all; font-size:14px; color:#333; }
 .note { font-size:12px; color:#777; margin-top:6px; text-align:center;}
 </style>
 </head>
 <body>
 <div class="container">
-    <h2>傲神美团外卖 & 淘宝闪购领券</h2>
-    <p>WeChat: <strong>aonb9999</strong></p>
+<h2>傲神美团/淘宝领券</h2>
+<p>WeChat: <strong>aonb9999</strong></p>
 
-    <!-- 输入框 -->
-    <input type="text" id="pasteBox" placeholder="请粘贴外卖店铺链接">
-    <input type="text" id="linkBox" placeholder="生成的领券链接" readonly>
+<input type="text" id="pasteBox" placeholder="请粘贴外卖店铺链接">
+<input type="text" id="linkBox" placeholder="生成的领券链接" readonly>
+<div class="btn-row">
+<button id="goBtn">Go 跳转领券</button>
+<button id="clearBtn">清空</button>
+</div>
+<button id="homeBtn">进入美团外卖主页</button>
+<p style="font-size:14px; color:#555; margin-top:6px; text-align:center;">进入需要下单的店铺，复制链接粘贴到上方领券</p>
 
-    <!-- Go 和 清空按钮并排 -->
-    <div class="btn-row">
-        <button id="goBtn">Go 跳转领券</button>
-        <button id="clearBtn">清空</button>
-    </div>
+<!-- 美团领券1 -->
+<div class="coupon-card" id="coupon1">
+<div class="coupon-title">美团领券1</div>
+<div class="coupon-actions">
+<button class="btn-direct" id="coupon1_direct">直达</button>
+<button class="btn-code" id="coupon1_showcode">口令</button>
+<button class="btn-copy" id="coupon1_copyopen">密令</button>
+</div>
+<div class="coupon-text" id="coupon1_text" aria-live="polite">口令会显示在这里（点击“口令”按钮）</div>
+<div class="note">点击“密令”会把密令复制到剪贴板，打开美团app即可跳转领券</div>
+</div>
 
-    <button id="homeBtn">进入美团外卖主页</button>
-    <p style="font-size:12px;color:#777;text-align:center;margin-top:5px;">
-        进入需要下单的店铺，复制链接粘贴到上方领券
-    </p>
+<!-- 美团领券2 -->
+<div class="coupon-card" id="coupon2">
+<div class="coupon-title">美团领券2</div>
+<div class="coupon-actions">
+<button class="btn-direct" id="coupon2_direct">直达</button>
+<button class="btn-code" id="coupon2_showcode">口令</button>
+<button class="btn-copy" id="coupon2_copyopen">密令</button>
+</div>
+<div class="coupon-text" id="coupon2_text" aria-live="polite">口令会显示在这里（点击“口令”按钮）</div>
+<div class="note">点击“密令”会把密令复制到剪贴板，打开美团app即可跳转领券</div>
+</div>
 
-    <!-- 美团领券1 -->
-    <div class="coupon-card" id="coupon1">
-        <div class="coupon-title">美团领券1</div>
-        <div class="coupon-actions">
-            <button class="btn-direct" id="coupon1_direct">直达</button>
-            <button class="btn-code" id="coupon1_showcode">口令</button>
-            <button class="btn-copy" id="coupon1_copyopen">密令</button>
-        </div>
-        <div class="coupon-text" id="coupon1_text" aria-live="polite">口令会显示在这里（点击“口令”按钮）</div>
-        <div class="note">点击“密令”会把密令复制到剪贴板 打开美团app即可跳转领券</div>
-    </div>
-
-    <!-- 美团领券2 -->
-    <div class="coupon-card" id="coupon2">
-        <div class="coupon-title">美团领券2</div>
-        <div class="coupon-actions">
-            <button class="btn-direct" id="coupon2_direct">直达</button>
-            <button class="btn-code" id="coupon2_showcode">口令</button>
-            <button class="btn-copy" id="coupon2_copyopen">密令</button>
-        </div>
-        <div class="coupon-text" id="coupon2_text" aria-live="polite">口令会显示在这里（点击“口令”按钮）</div>
-        <div class="note">点击“密令”会把密令复制到剪贴板 打开美团app即可跳转领券</div>
-    </div>
-
-    <!-- 淘宝闪购领券1 -->
-    <div class="coupon-card" id="tb1">
-        <div class="coupon-title">淘宝闪购领券1</div>
-        <div class="coupon-actions">
-            <button class="btn-direct" id="tb1_direct">直达</button>
-            <button class="btn-code" id="tb1_showcode">口令</button>
-            <button class="btn-copy" id="tb1_copyopen">密令</button>
-        </div>
-        <div class="coupon-text" id="tb1_text" aria-live="polite">口令会显示在这里（点击“口令”按钮）</div>
-        <div class="note">点击“密令”会把密令复制到剪贴板 打开淘宝app即可跳转领券</div>
-    </div>
+<!-- 淘宝闪购领券1 -->
+<div class="coupon-card" id="tb1">
+<div class="coupon-title">淘宝闪购领券1</div>
+<div class="coupon-actions">
+<button class="btn-direct" id="tb1_direct">直达</button>
+<button class="btn-code" id="tb1_showcode">口令</button>
+<button class="btn-copy" id="tb1_copyopen">密令</button>
+</div>
+<div class="coupon-text" id="tb1_text" aria-live="polite">口令会显示在这里（点击“口令”按钮）</div>
+<div class="note">点击“密令”会把密令复制到剪贴板，打开淘宝/美团app即可跳转领券</div>
+</div>
 </div>
 
 <script>
-// 提取冒号后内容
-function extractAfterColon(text){
-    const idx = text.indexOf(":");
-    return idx!==-1 ? text.slice(idx+1).trim() : text;
-}
-
-// 输入框逻辑
+/* 基础逻辑 */
 let extractedPoiId = "";
+function extractPoiId(text){ let match = text.match(/poi_id_str=([\w\-_]+)/i) || text.match(/poi_id=([\w\-_]+)/i); return match ? match[1]:""; }
 const pasteBox = document.getElementById("pasteBox");
 const linkBox = document.getElementById("linkBox");
 const goBtn = document.getElementById("goBtn");
 const clearBtn = document.getElementById("clearBtn");
 const homeBtn = document.getElementById("homeBtn");
 
-function extractPoiId(text){
-    let match = text.match(/poi_id_str=([\w\-_]+)/i) || text.match(/poi_id=([\w\-_]+)/i);
-    return match ? match[1] : "";
-}
-
-pasteBox.addEventListener("paste", (e)=>{
+pasteBox.addEventListener("paste",(e)=>{
     e.preventDefault();
     let pastedData = (e.clipboardData || window.clipboardData).getData('text');
     extractedPoiId = extractPoiId(pastedData);
-    linkBox.value = extractedPoiId ? "粘贴成功，请点 Go 跳转领券" : "未识别到店铺ID，请重新粘贴";
+    if(extractedPoiId){ linkBox.value="粘贴成功，请点 Go 跳转领券"; }
+    else{ linkBox.value="未识别到店铺ID，请重新粘贴"; }
 });
 
-goBtn.addEventListener("click", ()=>{
-    if(!extractedPoiId){ alert("请先粘贴包含店铺ID的链接！"); return; }
-    const link = `https://offsiteact.meituan.com/web/hoae/collection_waimai_v8/index.html?...&poi_id_str=${extractedPoiId}`;
-    window.location.href = link;
+goBtn.addEventListener("click",()=>{
+    if(!extractedPoiId){ alert("请先粘贴包含店铺ID的链接！"); return;}
+    const link = `https://offsiteact.meituan.com/web/hoae/collection_waimai_v8/index.html?recallBizId=cpsH5Coupon&bizId=224ac1afd8674632ae7b85226f192d82&mediumSrc1=224ac1afd8674632ae7b85226f192d82&scene=CPS_SELF_SRC&pageSrc1=CPS_SELF_OUT_SRC_H5_LINK&pageSrc2=224ac1afd8674632ae7b85226f192d82&pageSrc3=87cc2e50066549689b14888ef3b835a9&activityId=6&mediaPvId=dafkdsajffjafdfs&mediaUserId=10086&outActivityId=6&hoaePageV=8&p=1009457908706648064&poi_id_str=${extractedPoiId}`;
+    window.location.href=link;
+});
+clearBtn.addEventListener("click",()=>{ pasteBox.value=""; linkBox.value=""; extractedPoiId=""; });
+homeBtn.addEventListener("click",()=>{ window.location.href="https://h5.waimai.meituan.com/waimai/mindex/home"; });
+
+/* 美团券1 */
+const coupon1={directUrl:"http://dpurl.cn/dB3Un4Iz", codeText:"美团app搜:傲神666", copyOpenText:"1 %复制信息#% 打开团App http:/¥v8MjgxNzAwZGE¥一起领"};
+document.getElementById("coupon1_direct").addEventListener("click",()=>window.open(coupon1.directUrl,"_blank"));
+document.getElementById("coupon1_showcode").addEventListener("click",()=>document.getElementById("coupon1_text").textContent=coupon1.codeText);
+document.getElementById("coupon1_copyopen").addEventListener("click",async()=>{
+    const txt=coupon1.copyOpenText;
+    try{ await navigator.clipboard.writeText(txt); alert("复制密令成功，请美团打开App"); window.location.href="imeituan://"; }
+    catch{ document.getElementById("coupon1_text").textContent=txt; alert("复制失败，请手动复制"); }
 });
 
-clearBtn.addEventListener("click", ()=>{
-    pasteBox.value=""; linkBox.value=""; extractedPoiId="";
+/* 美团券2 */
+const coupon2={directUrl:"http://dpurl.cn/UnaXWSpz", codeText:"美团app搜:79821", copyOpenText:"1 %复制信息#% 打开团App http:/¥djZDhmODI2Mjg¥一起领"};
+document.getElementById("coupon2_direct").addEventListener("click",()=>window.open(coupon2.directUrl,"_blank"));
+document.getElementById("coupon2_showcode").addEventListener("click",()=>document.getElementById("coupon2_text").textContent=coupon2.codeText);
+document.getElementById("coupon2_copyopen").addEventListener("click",async()=>{
+    const txt=coupon2.copyOpenText;
+    try{ await navigator.clipboard.writeText(txt); alert("复制密令成功，请美团打开App"); window.location.href="imeituan://"; }
+    catch{ document.getElementById("coupon2_text").textContent=txt; alert("复制失败，请手动复制"); }
 });
-homeBtn.addEventListener("click", ()=>window.location.href="https://h5.waimai.meituan.com/waimai/mindex/home");
 
-/* 美团/淘宝领券数据 */
-const couponData = [
-    {id:"coupon1", direct:"http://dpurl.cn/dB3Un4Iz", code:"美团app搜:傲神666", copy:"1 %复制信息#% 打开团App http:/¥v8MjgxNzAwZGE¥一起领", app:"imeituan://"},
-    {id:"coupon2", direct:"http://dpurl.cn/UnaXWSpz", code:"美团app搜:79821", copy:"1 %复制信息#% 打开团App http:/¥djZDhmODI2Mjg¥一起领", app:"imeituan://"},
-    {id:"tb1", direct:"https://market.m.taobao.com/app/starlink/wakeup-transit/pages/download?star_id=8644&slk_force_set_request=true&scene=e3a01b36513b460590779efb46422076", code:"淘宝闪购搜:79822", copy:"47 HU7405   2:/£CxNR4L5DK93₤三最高20元，可叠加", app:"taobao://"}
-];
-
-// 生成事件
-couponData.forEach(c=>{
-    // 直达
-    document.getElementById(c.id+"_direct").addEventListener("click", ()=>{
-        let newWin = window.open(c.direct,"_blank");
-        if(!newWin || newWin.closed || typeof newWin.closed=='undefined'){
-            alert("已复制链接，请打开浏览器粘贴跳转");
-        }
-    });
-    // 口令
-    document.getElementById(c.id+"_showcode").addEventListener("click", async ()=>{
-        document.getElementById(c.id+"_text").textContent = c.code;
-        const codeOnly = extractAfterColon(c.code);
-        try{
-            await navigator.clipboard.writeText(codeOnly);
-            alert("口令已复制到剪贴板，请打开对应App顶部搜索粘贴使用");
-        }catch{
-            alert("复制失败，请手动复制："+codeOnly);
-        }
-    });
-    // 密令
-    document.getElementById(c.id+"_copyopen").addEventListener("click", async ()=>{
-        try{
-            await navigator.clipboard.writeText(c.copy);
-            alert("已复制密令，请打开对应App");
-            window.location.href = c.app;
-        }catch{
-            alert("复制失败，请手动复制："+c.copy);
-        }
-    });
+/* 淘宝闪购 */
+function isWeixinBrowser(){ const ua = window.navigator.userAgent.toLowerCase(); return /micromessenger|qq\//.test(ua); }
+const tb1={directUrl:"https://market.m.taobao.com/app/starlink/wakeup-transit/pages/download?star_id=8644&slk_force_set_request=true&scene=e3a01b36513b460590779efb46422076", codeText:"淘宝闪购搜:79822", codeCopy:"79822", copyOpenText:"47 HU7405   2:/£CxNR4L5DK93₤三最高20元，可叠加"};
+document.getElementById("tb1_direct").addEventListener("click",async()=>{
+    if(isWeixinBrowser()){
+        try{ await navigator.clipboard.writeText(tb1.directUrl); alert("链接已复制，请打开浏览器粘贴跳转"); }
+        catch{ alert("复制链接失败，请手动复制"); }
+    }else{ window.open(tb1.directUrl,"_blank"); }
+});
+document.getElementById("tb1_showcode").addEventListener("click",async()=>{
+    document.getElementById("tb1_text").textContent=tb1.codeText;
+    try{ await navigator.clipboard.writeText(tb1.codeCopy); alert("复制口令成功，请在美团/淘宝打开App顶部搜索"); }
+    catch{ alert("复制口令失败，请手动复制"); }
+});
+document.getElementById("tb1_copyopen").addEventListener("click",async()=>{
+    const txt=tb1.copyOpenText;
+    try{ await navigator.clipboard.writeText(txt); alert("复制密令成功，请在淘宝/美团打开App"); }
+    catch{ document.getElementById("tb1_text").textContent=txt; alert("复制失败，请手动复制"); }
 });
 </script>
 </body>
