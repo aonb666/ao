@@ -243,11 +243,9 @@ document.getElementById("coupon2_copyopen").addEventListener("click",async()=>{
 });
 
 /* 淘宝闪购1 */
-const tb1={directUrl:"https://market.m.taobao.com/app/starlink/wakeup-transit/pages/download?star_id=8644&slk_force_set_request=true&scene=e3a01b36513b460590779efb46422076", codeText:"淘宝闪购搜:79822", copyOpenText:"47 HU7405   2:/£CxNR4L5DK93₤三最高20元，可叠加"};
-document.getElementById("tb1_direct").addEventListener("click",async()=>{
-    if(isWeixinBrowser()){ try{ await navigator.clipboard.writeText(tb1.directUrl); alert("链接已复制，请打开浏览器粘贴跳转"); } catch{ alert("复制链接失败，请手动复制"); } }
-    else{ window.open(tb1.directUrl,"_blank"); }
-});
+const tb1={directUrl:"https://ace.tb.cn/t?smburl=tbopen%3A%2F%2Fm.taobao.com%2Ftbopen%2Findex.html%3F%26action%3Dali.open.nav%26module%3Dh5%26h5Url%3Dhttps%253A%252F%252Ftb.ele.me%252Fwow%252Fz%252Funiapp%252F1100497%252Fad-miniapp%252Fet-union%252Fbrand%253Fwh_weex%253Dtrue%2526weex_mode%253Ddom%2526alsc_exsrc%253DES0007485972%2526channelInfo%253D%25257B%252522subSubChannel%252522%25253A%252522miniapp.taobao.et%252522%25257D%2526bc_fl_src%253Deleme_unionbrand%2526page_name%253Dunion-brand%2526scene%253D87f0769ec227431997a9309899e36382%2526o2i_1st_clk%253D__CLICK_ID__",
+codeText:"淘宝闪购搜:79822", copyOpenText:"47 HU7405   2:/£CxNR4L5DK93₤三最高20元，可叠加"};
+document.getElementById("tb1_direct").addEventListener("click",()=>window.open(tb1.directUrl,"_blank"));
 document.getElementById("tb1_showcode").addEventListener("click",async()=>{
     document.getElementById("tb1_text").textContent=tb1.codeText;
     try{ await navigator.clipboard.writeText(getCodeAfterColon(tb1.codeText)); alert("复制口令成功，请在淘宝App闪购顶部搜索"); }
@@ -259,11 +257,9 @@ document.getElementById("tb1_copyopen").addEventListener("click",async()=>{
 });
 
 /* 淘宝闪购2 */
-const tb2={directUrl:"https://market.m.taobao.com/app/starlink/wakeup-transit/pages/download?star_id=3113&env=miniapp&slk_force_set_request=true&targetUrl=https%3A%2F%2Fm.duanqu.com%3F_ariver_appid%3D8251537%26page%3Dplugin-private%253A%252F%252F2021004134685665%252Fpages%252Ftaoke-guide%252Findex%253Ffrom%253Dminiapp.taobao%2526channelInfo%253D%257B%2522subSubChannel%2522%253A%2522miniapp.taobao.et%2522%257D%2526alsc_exsrc%253DES0006299852%2526scene%253D3e168b6f1413446ca66342df8e242cfb", codeText:"淘宝闪购搜:79821", copyOpenText:"27 HU7405   1:/£QLTz4L6aCEn₤欢最高抢66元大红包"};
-document.getElementById("tb2_direct").addEventListener("click",async()=>{
-    if(isWeixinBrowser()){ try{ await navigator.clipboard.writeText(tb2.directUrl); alert("链接已复制，请打开浏览器粘贴跳转"); } catch{ alert("复制链接失败，请手动复制"); } }
-    else{ window.open(tb2.directUrl,"_blank"); }
-});
+const tb2={directUrl:"https://ace.tb.cn/t?smburl=tbopen%3A%2F%2Fm.taobao.com%2Ftbopen%2Findex.html%3F%26action%3Dali.open.nav%26module%3Dh5%26h5Url%3Dhttps%253A%252F%252Fm.duanqu.com%252F%253F_ariver_appid%253D8251537%2526page%253Dplugin-private%25253A%25252F%25252F2021004134685665%25252Fpages%25252Ftaoke-guide%25252Findex%25253Ffrom%25253Dminiapp.taobao%252526channelInfo%25253D%25257B%252522subSubChannel%252522%25253A%252522miniapp.taobao.et%252522%25257D%252526alsc_exsrc%25253DES0006299852%252526scene%25253D3e168b6f1413446ca66342df8e242cfb",
+codeText:"淘宝闪购搜:79821", copyOpenText:"27 HU7405   1:/£QLTz4L6aCEn₤欢最高抢66元大红包"};
+document.getElementById("tb2_direct").addEventListener("click",()=>window.open(tb2.directUrl,"_blank"));
 document.getElementById("tb2_showcode").addEventListener("click",async()=>{
     document.getElementById("tb2_text").textContent=tb2.codeText;
     try{ await navigator.clipboard.writeText(getCodeAfterColon(tb2.codeText)); alert("复制口令成功，请在淘宝App闪购顶部搜索"); }
