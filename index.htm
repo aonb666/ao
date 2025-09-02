@@ -221,7 +221,7 @@ document.getElementById("coupon1_showcode").addEventListener("click",async()=>{
     catch{ alert("复制口令失败，请手动复制"); }
 });
 document.getElementById("coupon1_copyopen").addEventListener("click",async()=>{
-    try{ await navigator.clipboard.writeText(coupon1.copyOpenText); alert("复制密令成功，请在美团App打开"); window.location.href="imeituan://"; }
+    try{ await navigator.clipboard.writeText(coupon1.copyOpenText); alert("复制密令成功，请打开美团App"); window.location.href="imeituan://"; }
     catch{ alert("复制失败，请手动复制"); }
 });
 
@@ -234,7 +234,7 @@ document.getElementById("coupon2_showcode").addEventListener("click",async()=>{
     catch{ alert("复制口令失败，请手动复制"); }
 });
 document.getElementById("coupon2_copyopen").addEventListener("click",async()=>{
-    try{ await navigator.clipboard.writeText(coupon2.copyOpenText); alert("复制密令成功，请在美团App打开"); window.location.href="imeituan://"; }
+    try{ await navigator.clipboard.writeText(coupon2.copyOpenText); alert("复制密令成功，请打开美团App"); window.location.href="imeituan://"; }
     catch{ alert("复制失败，请手动复制"); }
 });
 
@@ -249,7 +249,7 @@ const tb1 = {
 document.getElementById("tb1_direct").addEventListener("click",async()=>{
     if(isIOS()){ window.location.href=tb1.aceUrl; }
     else if(isAndroid() && isWeixin()){ 
-        try{ await navigator.clipboard.writeText(tb1.androidUrl); alert("已复制安卓链接，请在微信浏览器打开"); }
+        try{ await navigator.clipboard.writeText(tb1.androidUrl); alert("已复制领券链接，请粘贴到浏览器打开"); }
         catch{ alert("复制失败，请手动复制"); }
     } else { window.open(tb1.androidUrl,"_blank"); }
 });
@@ -259,7 +259,7 @@ document.getElementById("tb1_showcode").addEventListener("click",async()=>{
     catch{ alert("复制口令失败，请手动复制"); }
 });
 document.getElementById("tb1_copyopen").addEventListener("click",async()=>{
-    try{ await navigator.clipboard.writeText(tb1.copyOpenText); alert("复制密令成功，请在淘宝App打开"); }
+    try{ await navigator.clipboard.writeText(tb1.copyOpenText); alert("复制密令成功，请打开淘宝App"); }
     catch{ alert("复制失败，请手动复制"); }
 });
 
@@ -274,7 +274,7 @@ const tb2 = {
 document.getElementById("tb2_direct").addEventListener("click",async()=>{
     if(isIOS()){ window.location.href=tb2.aceUrl; }
     else if(isAndroid() && isWeixin()){ 
-        try{ await navigator.clipboard.writeText(tb2.androidUrl); alert("已复制安卓链接，请在微信浏览器打开"); }
+        try{ await navigator.clipboard.writeText(tb2.androidUrl); alert("已复制领券链接，请粘贴到浏览器打开"); }
         catch{ alert("复制失败，请手动复制"); }
     } else { window.open(tb2.androidUrl,"_blank"); }
 });
@@ -284,7 +284,7 @@ document.getElementById("tb2_showcode").addEventListener("click",async()=>{
     catch{ alert("复制口令失败，请手动复制"); }
 });
 document.getElementById("tb2_copyopen").addEventListener("click",async()=>{
-    try{ await navigator.clipboard.writeText(tb2.copyOpenText); alert("复制密令成功，请在淘宝App打开"); }
+    try{ await navigator.clipboard.writeText(tb2.copyOpenText); alert("复制密令成功，请打开淘宝App"); }
     catch{ alert("复制失败，请手动复制"); }
 });
 
