@@ -1,11 +1,3 @@
-<?php
-/* 淘宝闪购直达链接 */
-$tb1_ios  = "https://ace.tb.cn/t?smburl=tbopen%3A%2F%2Fm.taobao.com%2Ftbopen%2Findex.html%3F%26action%3Dali.open.nav%26module%3Dh5%26h5Url%3Dhttps%253A%252F%252Ftb.ele.me%252Fwow%252Fz%252Funiapp%252F1100497%252Fad-miniapp%252Fet-union%252Fbrand%253Fwh_weex%253Dtrue%2526weex_mode%253Ddom%2526alsc_exsrc%253DES0007485972%2526channelInfo%253D%25257B%252522subSubChannel%252522%25253A%252522miniapp.taobao.et%252522%25257D%2526bc_fl_src%253Deleme_unionbrand%2526page_name%253Dunion-brand%2526scene%253D87f0769ec227431997a9309899e36382%2526o2i_1st_clk%253D__CLICK_ID__";
-$tb1_android = "tbopen://m.taobao.com/tbopen/index.html?&action=ali.open.nav&module=h5&h5Url=https%3A%2F%2Ftb.ele.me%2Fwow%2Fz%2Funiapp%2F1100497%2Fad-miniapp%2Fet-union%2Fbrand%3Fwh_weex%3Dtrue%26weex_mode%3Ddom%26alsc_exsrc%3DES0007485972%26channelInfo%3D%257B%2522subSubChannel%2522%253A%2522miniapp.taobao.et%2522%257D%26bc_fl_src%3Deleme_unionbrand%26page_name%3Dunion-brand%26scene%3D87f0769ec227431997a9309899e36382%26o2i_1st_clk%3D__CLICK_ID__";
-
-$tb2_ios  = "https://ace.tb.cn/t?smburl=tbopen%3A%2F%2Fm.taobao.com%2Ftbopen%2Findex.html%3F%26action%3Dali.open.nav%26module%3Dh5%26h5Url%3Dhttps%253A%252F%252Fm.duanqu.com%252F%253F_ariver_appid%253D8251537%2526page%253Dplugin-private%25253A%25252F%25252F2021004134685665%25252Fpages%25252Ftaoke-guide%25252Findex%25253Ffrom%25253Dminiapp.taobao%252526channelInfo%25253D%25257B%252522subSubChannel%252522%25253A%252522miniapp.taobao.et%252522%25257D%252526alsc_exsrc%25253DES0006299852%252526scene%25253D3e168b6f1413446ca66342df8e242cfb";
-$tb2_android = "tbopen://m.taobao.com/tbopen/index.html?&action=ali.open.nav&module=h5&h5Url=https%3A%2F%2Fm.duanqu.com%3F_ariver_appid%3D8251537%26page%3Dplugin-private%3A%2F%2F2021004134685665%2Fpages%2Ftaoke-guide%2Findex%3Ffrom%3Dminiapp.taobao%26channelInfo%3D%7B%22subSubChannel%22%3A%22miniapp.taobao.et%22%7D%26alsc_exsrc%3DES0006299852%26scene%3D3e168b6f1413446ca66342df8e242cfb";
-?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -13,7 +5,7 @@ $tb2_android = "tbopen://m.taobao.com/tbopen/index.html?&action=ali.open.nav&mod
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>傲の领券合集</title>
 <style>
-body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; background:#f2f2f7; padding:20px; display:flex; flex-direction:column; align-items:center;}
+body { font-family:-apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, Arial, sans-serif; background:#f2f2f7; padding:20px; display:flex; flex-direction:column; align-items:center;}
 .container { background:#fff; padding:20px; border-radius:16px; width:95%; max-width:500px; box-shadow:0 4px 12px rgba(0,0,0,0.08);}
 h2 { text-align:center; margin-bottom:10px; font-size:20px; }
 p { text-align:center; margin-bottom:12px; }
@@ -56,7 +48,29 @@ button:hover { opacity:0.9; transform:scale(1.02); }
 <button id="homeBtn">点击进入美团复制店铺链接</button>
 <p style="font-size:14px; color:#555; margin-top:6px; text-align:center;">进入需要下单的店铺，复制链接粘贴到上方领券</p>
 
-<!-- 美团券、打车、流量卡按钮保持不变 -->
+<!-- 美团领券1 -->
+<div class="coupon-card" id="coupon1">
+  <div class="coupon-title">美团领券1</div>
+  <div class="coupon-actions">
+    <button class="btn-direct" id="coupon1_direct">直达</button>
+    <button class="btn-code" id="coupon1_showcode">口令</button>
+    <button class="btn-copy" id="coupon1_copyopen">密令</button>
+  </div>
+  <div class="coupon-text" id="coupon1_text">口令会显示在这里（点击“口令”按钮）</div>
+  <div class="note">点击“密令”会把密令复制到剪贴板，打开美团App即可跳转领券</div>
+</div>
+
+<!-- 美团领券2 -->
+<div class="coupon-card" id="coupon2">
+  <div class="coupon-title">美团领券2</div>
+  <div class="coupon-actions">
+    <button class="btn-direct" id="coupon2_direct">直达</button>
+    <button class="btn-code" id="coupon2_showcode">口令</button>
+    <button class="btn-copy" id="coupon2_copyopen">密令</button>
+  </div>
+  <div class="coupon-text" id="coupon2_text">口令会显示在这里（点击“口令”按钮）</div>
+  <div class="note">点击“密令”会把密令复制到剪贴板，打开美团App即可跳转领券</div>
+</div>
 
 <!-- 淘宝闪购领券1 -->
 <div class="coupon-card" id="tb1">
@@ -82,39 +96,94 @@ button:hover { opacity:0.9; transform:scale(1.02); }
   <div class="note">点击“密令”会把密令复制到剪贴板，打开淘宝App即可跳转领券</div>
 </div>
 
+<!-- 打车按钮 -->
+<div class="grid-btns">
+  <button id="didiBtn">滴滴打车领券</button>
+  <button id="t3Btn">T3打车领券</button>
+  <button id="hxzBtn">花小猪打车领券</button>
+  <button id="tcBtn">同程打车领券</button>
+</div>
+
+<!-- 流量卡办理 -->
+<div class="grid-btns">
+  <button id="flowBtn">流量卡办理</button>
+</div>
+</div>
+
 <script>
-/* 输入框和美团券逻辑保持不变，此处省略，为你保持原有功能 */
+// --- 店铺ID处理 ---
+let extractedPoiId = "";
+function extractPoiId(text){
+  let match = text.match(/poi_id_str=([\w\-_]+)/i) || text.match(/poi_id=([\w\-_]+)/i);
+  return match ? match[1] : "";
+}
+const pasteBox = document.getElementById("pasteBox");
+const linkBox = document.getElementById("linkBox");
+const goBtn = document.getElementById("goBtn");
+const clearBtn = document.getElementById("clearBtn");
+const homeBtn = document.getElementById("homeBtn");
 
-/* 淘宝闪购按钮跳转 */
-document.getElementById("tb1_direct").addEventListener("click",()=>{
-    let ua = navigator.userAgent;
-    let link = /(iPhone|iPad|iPod)/i.test(ua) ? "<?php echo $tb1_ios; ?>" : "<?php echo $tb1_android; ?>";
-    window.location.href = link;
-});
-document.getElementById("tb1_showcode").addEventListener("click",async()=>{
-    const text="淘宝闪购搜:79822";
-    document.getElementById("tb1_text").textContent=text;
-    try{ await navigator.clipboard.writeText(text); alert("复制口令成功，请在淘宝App闪购顶部搜索"); }catch{ alert("复制失败，请手动复制"); }
-});
-document.getElementById("tb1_copyopen").addEventListener("click",async()=>{
-    const text="47 HU7405 2:/£CxNR4L5DK93₤三最高20元，可叠加";
-    try{ await navigator.clipboard.writeText(text); alert("复制密令成功，请在淘宝App打开"); }catch{ alert("复制失败，请手动复制"); }
+pasteBox.addEventListener("paste",(e)=>{
+  e.preventDefault();
+  let pastedData = (e.clipboardData || window.clipboardData).getData('text');
+  extractedPoiId = extractPoiId(pastedData);
+  if(extractedPoiId){ linkBox.value="粘贴成功，请点 Go 跳转领券"; }
+  else{ linkBox.value="未识别到店铺ID，请重新粘贴"; }
 });
 
-document.getElementById("tb2_direct").addEventListener("click",()=>{
-    let ua = navigator.userAgent;
-    let link = /(iPhone|iPad|iPod)/i.test(ua) ? "<?php echo $tb2_ios; ?>" : "<?php echo $tb2_android; ?>";
-    window.location.href = link;
+goBtn.addEventListener("click",()=>{
+  if(!extractedPoiId){ alert("请先粘贴包含店铺ID的链接！"); return; }
+  const link = `https://offsiteact.meituan.com/web/hoae/collection_waimai_v8/index.html?poi_id_str=${extractedPoiId}`;
+  window.location.href = link;
 });
-document.getElementById("tb2_showcode").addEventListener("click",async()=>{
-    const text="淘宝闪购搜:79821";
-    document.getElementById("tb2_text").textContent=text;
-    try{ await navigator.clipboard.writeText(text); alert("复制口令成功，请在淘宝App闪购顶部搜索"); }catch{ alert("复制失败，请手动复制"); }
+clearBtn.addEventListener("click",()=>{ pasteBox.value=""; linkBox.value=""; extractedPoiId=""; });
+homeBtn.addEventListener("click",()=>{ window.location.href="https://h5.waimai.meituan.com/waimai/mindex/home"; });
+
+// --- 美团券 ---
+const coupons = [
+  {id:"coupon1", directUrl:"http://dpurl.cn/dB3Un4Iz", codeText:"美团app搜:傲神666", copyOpenText:"1 %复制信息#% 打开团App http:/¥v8MjgxNzAwZGE¥一起领"},
+  {id:"coupon2", directUrl:"http://dpurl.cn/UnaXWSpz", codeText:"美团app搜:79821", copyOpenText:"1 %复制信息#% 打开团App http:/¥djZDhmODI2Mjg¥一起领"}
+];
+
+coupons.forEach(c=>{
+  document.getElementById(c.id+"_direct").addEventListener("click",()=>window.open(c.directUrl,"_blank"));
+  document.getElementById(c.id+"_showcode").addEventListener("click",async()=>{
+    document.getElementById(c.id+"_text").textContent = c.codeText;
+    try{ await navigator.clipboard.writeText(c.codeText); alert("复制口令成功，请在美团App搜索"); }
+    catch{ alert("复制口令失败，请手动复制"); }
+  });
+  document.getElementById(c.id+"_copyopen").addEventListener("click",async()=>{
+    try{ await navigator.clipboard.writeText(c.copyOpenText); alert("复制密令成功，请在美团App打开"); window.location.href="imeituan://"; }
+    catch{ alert("复制失败，请手动复制"); }
+  });
 });
-document.getElementById("tb2_copyopen").addEventListener("click",async()=>{
-    const text="27 HU7405 1:/£QLTz4L6aCEn₤欢最高抢66元大红包";
-    try{ await navigator.clipboard.writeText(text); alert("复制密令成功，请在淘宝App打开"); }catch{ alert("复制失败，请手动复制"); }
+
+// --- 淘宝闪购 ---
+const tbCoupons = [
+  {id:"tb1", codeText:"淘宝闪购搜:79822", copyOpenText:"47 HU7405 2:/£CxNR4L5DK93₤三最高20元，可叠加", directUrl:"#"},
+  {id:"tb2", codeText:"淘宝闪购搜:79821", copyOpenText:"27 HU7405 1:/£QLTz4L6aCEn₤欢最高抢66元大红包", directUrl:"#"}
+];
+tbCoupons.forEach(tb=>{
+  document.getElementById(tb.id+"_showcode").addEventListener("click",async()=>{
+    document.getElementById(tb.id+"_text").textContent = tb.codeText;
+    try{ await navigator.clipboard.writeText(tb.codeText); alert("复制口令成功，请在淘宝App闪购顶部搜索"); }
+    catch{ alert("复制口令失败，请手动复制"); }
+  });
+  document.getElementById(tb.id+"_copyopen").addEventListener("click",async()=>{
+    try{ await navigator.clipboard.writeText(tb.copyOpenText); alert("复制密令成功，请在淘宝App打开"); }
+    catch{ alert("复制失败，请手动复制"); }
+  });
+  document.getElementById(tb.id+"_direct").addEventListener("click",()=>{
+    window.alert("直接跳转需在淘宝App中打开"); 
+  });
 });
+
+// --- 打车 & 流量卡 ---
+document.getElementById("didiBtn").addEventListener("click",()=>window.open("https://vv.didi.cn/a8ZdG0j","_blank"));
+document.getElementById("t3Btn").addEventListener("click",()=>window.open("https://s.t3go.cn/4WGk6eCQO","_blank"));
+document.getElementById("hxzBtn").addEventListener("click",()=>window.open("https://x.huaxz.cn/kgX0KXR","_blank"));
+document.getElementById("tcBtn").addEventListener("click",()=>window.open("https://wx.17u.cn/carfe/app/slCoupons?mark=d182390","_blank"));
+document.getElementById("flowBtn").addEventListener("click",()=>window.open("http://ax.lxhaoka.cn/index?k=WDU4Z0YzZDNiUzA9","_blank"));
 </script>
 </body>
 </html>
