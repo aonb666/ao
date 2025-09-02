@@ -106,18 +106,18 @@ button:hover { opacity:0.9; transform:scale(1.02); }
 <h2>傲の领券合集</h2>
 <p>WeChat: <strong>aonb9999</strong></p>
 
-<input type="text" id="pasteBox" placeholder="请粘贴外卖店铺链接">
-<input type="text" id="linkBox" placeholder="生成的领券链接" readonly>
+<input type="text" id="pasteBox" placeholder="请长按粘贴外卖店铺链接">
+<input type="text" id="linkBox" placeholder="记得配合下面外卖1外卖2券一起用" readonly>
 <div class="btn-row">
-<button id="goBtn">Go 跳转领券</button>
+<button id="goBtn">Go 跳转领隐藏券</button>
 <button id="clearBtn">清空</button>
 </div>
-<button id="homeBtn">进入美团外卖主页</button>
-<p style="font-size:14px; color:#555; margin-top:6px; text-align:center;">进入需要下单的店铺，复制链接粘贴到上方领券</p>
+<button id="homeBtn">点击进入美团找到需要下单店铺</button>
+<p style="font-size:14px; color:#555; margin-top:6px; text-align:center;">复制店铺整个网页链接，粘贴到上方领券</p>
 
-<!-- 美团领券1 -->
+<!-- 美团外卖券1 -->
 <div class="coupon-card" id="coupon1">
-  <div class="coupon-title">美团领券1</div>
+  <div class="coupon-title">美团外卖券1</div>
   <div class="coupon-actions">
     <button class="btn-direct" id="coupon1_direct">直达</button>
     <button class="btn-code" id="coupon1_showcode">口令</button>
@@ -127,9 +127,9 @@ button:hover { opacity:0.9; transform:scale(1.02); }
   <div class="note">点击“密令”会把密令复制到剪贴板，打开美团app即可跳转领券</div>
 </div>
 
-<!-- 美团领券2 -->
+<!-- 美团外卖券2 -->
 <div class="coupon-card" id="coupon2">
-  <div class="coupon-title">美团领券2</div>
+  <div class="coupon-title">美团外卖券2</div>
   <div class="coupon-actions">
     <button class="btn-direct" id="coupon2_direct">直达</button>
     <button class="btn-code" id="coupon2_showcode">口令</button>
@@ -139,9 +139,9 @@ button:hover { opacity:0.9; transform:scale(1.02); }
   <div class="note">点击“密令”会把密令复制到剪贴板，打开美团app即可跳转领券</div>
 </div>
 
-<!-- 淘宝闪购领券1 -->
+<!-- 淘宝闪购券1 -->
 <div class="coupon-card" id="tb1">
-  <div class="coupon-title">淘宝闪购领券1</div>
+  <div class="coupon-title">淘宝闪购券1</div>
   <div class="coupon-actions">
     <button class="btn-direct" id="tb1_direct">直达</button>
     <button class="btn-code" id="tb1_showcode">口令</button>
@@ -151,9 +151,9 @@ button:hover { opacity:0.9; transform:scale(1.02); }
   <div class="note">点击“密令”会把密令复制到剪贴板，打开淘宝App即可跳转领券</div>
 </div>
 
-<!-- 淘宝闪购领券2 -->
+<!-- 淘宝闪购券2 -->
 <div class="coupon-card" id="tb2">
-  <div class="coupon-title">淘宝闪购领券2</div>
+  <div class="coupon-title">淘宝闪购券2</div>
   <div class="coupon-actions">
     <button class="btn-direct" id="tb2_direct">直达</button>
     <button class="btn-code" id="tb2_showcode">口令</button>
@@ -201,7 +201,7 @@ pasteBox.addEventListener("paste",(e)=>{
     let pastedData = (e.clipboardData || window.clipboardData).getData('text');
     extractedPoiId = extractPoiId(pastedData);
     if(extractedPoiId){ linkBox.value="粘贴成功，请点 Go 跳转领券"; }
-    else{ linkBox.value="未识别到店铺ID，请重新粘贴"; }
+    else{ linkBox.value="未识别到店铺，请重新粘贴"; }
 });
 
 goBtn.addEventListener("click",()=>{
@@ -266,7 +266,7 @@ document.getElementById("tb1_copyopen").addEventListener("click",async()=>{
 /* 淘宝闪购2 */
 const tb2 = {
     aceUrl:"https://ace.tb.cn/t?smburl=tbopen%3A%2F%2Fm.taobao.com%2Ftbopen%2Findex.html%3F%26action%3Dali.open.nav%26module%3Dh5%26h5Url%3Dhttps%253A%252F%252Fm.duanqu.com%252F%253F_ariver_appid%253D8251537%2526page%253Dplugin-private%25253A%25252F%25252F2021004134685665%25252Fpages%25252Ftaoke-guide%25252Findex%25253Ffrom%25253Dminiapp.taobao%252526channelInfo%25253D%25257B%252522subSubChannel%252522%25253A%252522miniapp.taobao.et%252522%25257D%252526alsc_exsrc%25253DES0006299852%252526scene%25253D3e168b6f1413446ca66342df8e242cfb",
-    androidUrl:"https://market.m.duanqu.com/?_ariver_appid=8251537&page=plugin-private%3A%2F%2F2021004134685665%2Fpages%2Ftaoke-guide%2Findex",
+    androidUrl:"https://ace.tb.cn/t?smburl=tbopen%3A%2F%2Fm.taobao.com%2Ftbopen%2Findex.html%3F%26action%3Dali.open.nav%26module%3Dh5%26h5Url%3Dhttps%253A%252F%252Fm.duanqu.com%252F%253F_ariver_appid%253D8251537%2526page%253Dplugin-private%25253A%25252F%25252F2021004134685665%25252Fpages%25252Ftaoke-guide%25252Findex%25253Ffrom%25253Dminiapp.taobao%252526channelInfo%25253D%25257B%252522subSubChannel%252522%25253A%252522miniapp.taobao.et%252522%25257D%252526alsc_exsrc%25253DES0006299852%252526scene%25253D3e168b6f1413446ca66342df8e242cfb",
     codeText:"淘宝闪购搜:79821",
     copyOpenText:"27 HU7405   1:/£QLTz4L6aCEn₤欢最高抢66元大红包"
 };
