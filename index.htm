@@ -5,28 +5,95 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>傲の领券合集</title>
 <style>
-body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; background:#f2f2f7; padding:20px; display:flex; flex-direction:column; align-items:center; }
-.container { background:#fff; padding:20px; border-radius:16px; width:95%; max-width:500px; box-shadow:0 4px 12px rgba(0,0,0,0.08); }
+body { 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; 
+  background:#f2f2f7; 
+  padding:20px; 
+  display:flex; 
+  flex-direction:column; 
+  align-items:center;
+}
+.container { 
+  background:#fff; 
+  padding:20px; 
+  border-radius:16px; 
+  width:95%; 
+  max-width:500px; 
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
 h2 { text-align:center; margin-bottom:10px; font-size:20px; }
 p { text-align:center; margin-bottom:12px; }
-input { width:100%; padding:12px; font-size:16px; border-radius:12px; border:1px solid #ccc; margin-bottom:10px; box-sizing:border-box; background:#fff; }
+input { 
+  width:100%; 
+  padding:12px; 
+  font-size:16px; 
+  border-radius:12px; 
+  border:1px solid #ccc; 
+  margin-bottom:10px; 
+  box-sizing:border-box; 
+  background:#fff;
+}
 .btn-row { display:flex; justify-content:space-between; gap:10px; margin-bottom:10px;}
-button { flex:1; padding:12px; font-size:15px; border:none; border-radius:12px; cursor:pointer; font-weight:500; transition:all 0.2s ease-in-out; color:#fff; }
+button { 
+  flex:1; 
+  padding:12px; 
+  font-size:15px; 
+  border:none; 
+  border-radius:12px; 
+  cursor:pointer; 
+  font-weight:500;
+  transition: all 0.2s ease-in-out;
+  color:#fff;
+}
 button:hover { opacity:0.9; transform:scale(1.02); }
+
+/* 主按钮配色 */
 #goBtn { background:#0a84ff; }    
 #clearBtn { background:#ff3b30; } 
 #homeBtn { background:#34c759; width:100%; margin-top:10px; }
-.coupon-card { margin-top:14px; padding:16px; border-radius:16px; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.06); border:1px solid #eee; }
+
+/* coupon card 样式 */
+.coupon-card { 
+  margin-top:14px; 
+  padding:16px; 
+  border-radius:16px; 
+  background:#fff; 
+  box-shadow:0 2px 6px rgba(0,0,0,0.06); 
+  border:1px solid #eee; 
+}
 .coupon-title { font-weight:600; margin-bottom:8px; }
 .coupon-actions { display:flex; gap:8px; margin-bottom:8px; }
 .coupon-actions button { flex:1; padding:10px; font-size:14px; border-radius:12px; }
 .btn-direct { background:#5ac8fa; }
 .btn-code { background:#0a84ff; }
 .btn-copy { background:#34c759; }
-.coupon-text { width:100%; padding:10px; border-radius:12px; border:1px solid #ccc; background:#fff; word-break:break-all; font-size:14px; color:#333; box-sizing:border-box; margin:0; }
+
+/* 修复过的口令显示框 */
+.coupon-text { 
+  width:100%; 
+  padding:10px; 
+  border-radius:12px; 
+  border:1px solid #ccc; 
+  background:#fff; 
+  word-break:break-all; 
+  font-size:14px; 
+  color:#333; 
+  box-sizing:border-box;
+  margin:0;
+}
 .note { font-size:12px; color:#777; margin-top:6px; text-align:center; }
+
+/* 打车按钮排版 */
 .grid-btns { display:flex; justify-content:space-between; gap:8px; margin-top:10px; }
-.grid-btns button { flex:1; font-size:14px; padding:10px; border-radius:12px; color:#fff; border:none; cursor:pointer; }
+.grid-btns button { 
+  flex:1; 
+  font-size:14px; 
+  padding:10px; 
+  border-radius:12px; 
+  color:#fff; 
+  border:none; 
+  cursor:pointer; 
+}
 #didiBtn { background:#ff453a; }
 #t3Btn   { background:#ff9f0a; }
 #hxzBtn  { background:#0a84ff; }
@@ -38,6 +105,7 @@ button:hover { opacity:0.9; transform:scale(1.02); }
 <div class="container">
 <h2>傲の领券合集</h2>
 <p>WeChat: <strong>aonb9999</strong></p>
+
 <input type="text" id="pasteBox" placeholder="请粘贴外卖店铺链接">
 <input type="text" id="linkBox" placeholder="生成的领券链接" readonly>
 <div class="btn-row">
@@ -47,7 +115,7 @@ button:hover { opacity:0.9; transform:scale(1.02); }
 <button id="homeBtn">进入美团外卖主页</button>
 <p style="font-size:14px; color:#555; margin-top:6px; text-align:center;">进入需要下单的店铺，复制链接粘贴到上方领券</p>
 
-<!-- 美团券1 -->
+<!-- 美团领券1 -->
 <div class="coupon-card" id="coupon1">
   <div class="coupon-title">美团领券1</div>
   <div class="coupon-actions">
@@ -59,7 +127,7 @@ button:hover { opacity:0.9; transform:scale(1.02); }
   <div class="note">点击“密令”会把密令复制到剪贴板，打开美团app即可跳转领券</div>
 </div>
 
-<!-- 美团券2 -->
+<!-- 美团领券2 -->
 <div class="coupon-card" id="coupon2">
   <div class="coupon-title">美团领券2</div>
   <div class="coupon-actions">
@@ -71,7 +139,7 @@ button:hover { opacity:0.9; transform:scale(1.02); }
   <div class="note">点击“密令”会把密令复制到剪贴板，打开美团app即可跳转领券</div>
 </div>
 
-<!-- 淘宝闪购1 -->
+<!-- 淘宝闪购领券1 -->
 <div class="coupon-card" id="tb1">
   <div class="coupon-title">淘宝闪购领券1</div>
   <div class="coupon-actions">
@@ -83,7 +151,7 @@ button:hover { opacity:0.9; transform:scale(1.02); }
   <div class="note">点击“密令”会把密令复制到剪贴板，打开淘宝App即可跳转领券</div>
 </div>
 
-<!-- 淘宝闪购2 -->
+<!-- 淘宝闪购领券2 -->
 <div class="coupon-card" id="tb2">
   <div class="coupon-title">淘宝闪购领券2</div>
   <div class="coupon-actions">
@@ -110,13 +178,13 @@ button:hover { opacity:0.9; transform:scale(1.02); }
 </div>
 
 <script>
-/* 公共函数 */
-function isWeixinBrowser(){ return /micromessenger/i.test(navigator.userAgent); }
-function isAndroid(){ return /android/i.test(navigator.userAgent); }
+/* 工具函数 */
+function isWeixin(){ return /micromessenger/i.test(navigator.userAgent); }
 function isIOS(){ return /iphone|ipad|ipod/i.test(navigator.userAgent); }
+function isAndroid(){ return /android/i.test(navigator.userAgent); }
 function getCodeAfterColon(text){ const idx=text.indexOf(":"); return idx!==-1 ? text.substring(idx+1).trim() : text; }
 
-/* 外卖店铺ID处理 */
+/* 输入框处理 */
 let extractedPoiId = "";
 function extractPoiId(text){ 
   let match = text.match(/poi_id_str=([\w\-_]+)/i) || text.match(/poi_id=([\w\-_]+)/i); 
@@ -171,59 +239,61 @@ document.getElementById("coupon2_copyopen").addEventListener("click",async()=>{
 });
 
 /* 淘宝闪购1 */
-const tb1_iOS_Url = "https://ace.tb.cn/t?smburl=tbopen%3A%2F%2Fm.taobao.com%2Ftbopen%2Findex.html%3F%26action%3Dali.open.nav%26module%3Dh5%26h5Url%3Dhttps%253A%252F%252Ftb.ele.me%252Fwow%252Fz%252Funiapp%252F1100497%252Fad-miniapp%252Fet-union%252Fbrand%253Fwh_weex%253Dtrue%2526weex_mode%253Ddom%2526alsc_exsrc%253DES0007485972%2526channelInfo%253D%25257B%252522subSubChannel%252522%25253A%252522miniapp.taobao.et%252522%25257D%2526bc_fl_src%253Deleme_unionbrand%2526page_name%253Dunion-brand%2526scene%253D87f0769ec227431997a9309899e36382%2526o2i_1st_clk%253D__CLICK_ID__";
-const tb1_Android_Url = "https://market.m.taobao.com/app/starlink/wakeup-transit/pages/download?star_id=8644&slk_force_set_request=true&scene=87f0769ec227431997a9309899e36382";
+const tb1 = {
+    aceUrl:"https://ace.tb.cn/t?smburl=tbopen%3A%2F%2Fm.taobao.com%2Ftbopen%2Findex.html%3F%26action%3Dali.open.nav%26module%3Dh5%26h5Url%3Dhttps%253A%252F%252Ftb.ele.me%252Fwow%252Fz%252Funiapp%252F1100497%252Fad-miniapp%252Fet-union%252Fbrand%253Fwh_weex%253Dtrue%2526weex_mode%253Ddom%2526alsc_exsrc%253DES0007485972%2526channelInfo%253D%25257B%252522subSubChannel%252522%25253A%252522miniapp.taobao.et%252522%25257D%2526bc_fl_src%253Deleme_unionbrand%2526page_name%253Dunion-brand%2526scene%253D87f0769ec227431997a9309899e36382%2526o2i_1st_clk%253D__CLICK_ID__",
+    androidUrl:"https://market.m.taobao.com/app/starlink/wakeup-transit/pages/download?star_id=8644&slk_force_set_request=true&scene=87f0769ec227431997a9309899e36382",
+    codeText:"淘宝闪购搜:79822",
+    copyOpenText:"47 HU7405   2:/£CxNR4L5DK93₤三最高20元，可叠加"
+};
 
-document.getElementById("tb1_direct").addEventListener("click", async ()=>{
-    if(isIOS()){
-        window.location.href = tb1_iOS_Url;
-    } else if(isAndroid()){
-        if(isWeixinBrowser()){
-            try{ await navigator.clipboard.writeText(tb1_Android_Url); alert("安卓微信已复制直达链接，请在浏览器打开"); }
-            catch(e){ alert("复制失败，请手动复制：" + tb1_Android_Url); }
-        } else {
-            window.location.href = tb1_Android_Url;
-        }
-    }
+document.getElementById("tb1_direct").addEventListener("click",async()=>{
+    if(isIOS()){ window.location.href=tb1.aceUrl; }
+    else if(isAndroid() && isWeixin()){ 
+        try{ await navigator.clipboard.writeText(tb1.androidUrl); alert("已复制安卓链接，请在微信浏览器打开"); }
+        catch{ alert("复制失败，请手动复制"); }
+    } else { window.open(tb1.androidUrl,"_blank"); }
 });
-
-document.getElementById("tb1_copyopen").addEventListener("click", async ()=>{
-    if(isIOS()){
-        window.location.href = tb1_iOS_Url;
-    } else if(isAndroid()){
-        if(isWeixinBrowser()){
-            try{ await navigator.clipboard.writeText(tb1_Android_Url); alert("安卓微信已复制直达链接，请在浏览器打开"); }
-            catch(e){ alert("复制失败，请手动复制：" + tb1_Android_Url); }
-        } else {
-            window.location.href = tb1_Android_Url;
-        }
-    }
+document.getElementById("tb1_showcode").addEventListener("click",async()=>{
+    document.getElementById("tb1_text").textContent=tb1.codeText;
+    try{ await navigator.clipboard.writeText(getCodeAfterColon(tb1.codeText)); alert("复制口令成功，请在淘宝App闪购顶部搜索"); }
+    catch{ alert("复制口令失败，请手动复制"); }
 });
-
-document.getElementById("tb1_showcode").addEventListener("click", async ()=>{
-    const codeText = "淘宝闪购搜:79822";
-    document.getElementById("tb1_text").textContent = codeText;
-    try{ await navigator.clipboard.writeText(codeText.split(":")[1]); alert("复制口令成功，请在淘宝App闪购顶部搜索"); }
-    catch(e){ alert("复制口令失败，请手动复制"); }
+document.getElementById("tb1_copyopen").addEventListener("click",async()=>{
+    try{ await navigator.clipboard.writeText(tb1.copyOpenText); alert("复制密令成功，请在淘宝App打开"); }
+    catch{ alert("复制失败，请手动复制"); }
 });
 
 /* 淘宝闪购2 */
-const tb2_iOS_Url = "https://ace.tb.cn/t?smburl=tbopen%3A%2F%2Fm.taobao.com%2Ftbopen%2Findex.html%3F%26action%3Dali.open.nav%26module%3Dh5%26h5Url%3Dhttps%253A%252F%252Fm.duanqu.com%252F%253F_ariver_appid%253D8251537%2526page%253Dplugin-private%25253A%25252F%25252F2021004134685665%25252Fpages%25252Ftaoke-guide%25252Findex%25253Ffrom%25253Dminiapp.taobao%252526channelInfo%25253D%25257B%252522subSubChannel%252522%25253A%252522miniapp.taobao.et%252522%25257D%252526alsc_exsrc%25253DES0006299852%252526scene%25253D3e168b6f1413446ca66342df8e242cfb";
-document.getElementById("tb2_direct").addEventListener("click",()=>window.location.href=tb2_iOS_Url);
-document.getElementById("tb2_copyopen").addEventListener("click",()=>window.location.href=tb2_iOS_Url);
-document.getElementById("tb2_showcode").addEventListener("click",async ()=>{
-    const codeText = "淘宝闪购搜:79823";
-    document.getElementById("tb2_text").textContent = codeText;
-    try{ await navigator.clipboard.writeText(codeText.split(":")[1]); alert("复制口令成功，请在淘宝App闪购顶部搜索"); }
-    catch(e){ alert("复制口令失败，请手动复制"); }
+const tb2 = {
+    aceUrl:"https://ace.tb.cn/t?smburl=tbopen%3A%2F%2Fm.taobao.com%2Ftbopen%2Findex.html%3F%26action%3Dali.open.nav%26module%3Dh5%26h5Url%3Dhttps%253A%252F%252Fm.duanqu.com%252F%253F_ariver_appid%253D8251537%2526page%253Dplugin-private%25253A%25252F%25252F2021004134685665%25252Fpages%25252Ftaoke-guide%25252Findex%25253Ffrom%25253Dminiapp.taobao%252526channelInfo%25253D%25257B%252522subSubChannel%252522%25253A%252522miniapp.taobao.et%252522%25257D%252526alsc_exsrc%25253DES0006299852%252526scene%25253D3e168b6f1413446ca66342df8e242cfb",
+    androidUrl:"https://market.m.duanqu.com/?_ariver_appid=8251537&page=plugin-private%3A%2F%2F2021004134685665%2Fpages%2Ftaoke-guide%2Findex",
+    codeText:"淘宝闪购搜:79821",
+    copyOpenText:"27 HU7405   1:/£QLTz4L6aCEn₤欢最高抢66元大红包"
+};
+
+document.getElementById("tb2_direct").addEventListener("click",async()=>{
+    if(isIOS()){ window.location.href=tb2.aceUrl; }
+    else if(isAndroid() && isWeixin()){ 
+        try{ await navigator.clipboard.writeText(tb2.androidUrl); alert("已复制安卓链接，请在微信浏览器打开"); }
+        catch{ alert("复制失败，请手动复制"); }
+    } else { window.open(tb2.androidUrl,"_blank"); }
+});
+document.getElementById("tb2_showcode").addEventListener("click",async()=>{
+    document.getElementById("tb2_text").textContent=tb2.codeText;
+    try{ await navigator.clipboard.writeText(getCodeAfterColon(tb2.codeText)); alert("复制口令成功，请在淘宝App闪购顶部搜索"); }
+    catch{ alert("复制口令失败，请手动复制"); }
+});
+document.getElementById("tb2_copyopen").addEventListener("click",async()=>{
+    try{ await navigator.clipboard.writeText(tb2.copyOpenText); alert("复制密令成功，请在淘宝App打开"); }
+    catch{ alert("复制失败，请手动复制"); }
 });
 
-/* 打车按钮示例 */
-document.getElementById("didiBtn").addEventListener("click",()=>window.location.href="https://didi.cn");
-document.getElementById("t3Btn").addEventListener("click",()=>window.location.href="https://t3.cn");
-document.getElementById("hxzBtn").addEventListener("click",()=>window.location.href="https://huaxiaozhu.cn");
-document.getElementById("tcBtn").addEventListener("click",()=>window.location.href="https://tongcheng.cn");
-document.getElementById("flowBtn").addEventListener("click",()=>window.location.href="https://flowcard.cn");
+/* 打车及流量卡按钮示例 */
+document.getElementById("didiBtn").addEventListener("click",()=>window.open("https://didi.com/coupon","_blank"));
+document.getElementById("t3Btn").addEventListener("click",()=>window.open("https://t3.com/coupon","_blank"));
+document.getElementById("hxzBtn").addEventListener("click",()=>window.open("https://hxz.com/coupon","_blank"));
+document.getElementById("tcBtn").addEventListener("click",()=>window.open("https://tc.com/coupon","_blank"));
+document.getElementById("flowBtn").addEventListener("click",()=>window.open("https://flowcard.com","_blank"));
 
 </script>
 </body>
