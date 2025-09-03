@@ -1,277 +1,30 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>傲の领券合集</title>
-<style>
-body { 
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; 
-  background:#f2f2f7; 
-  padding:20px; 
-  display:flex; 
-  flex-direction:column; 
-  align-items:center;
-}
-.container { 
-  background:#fff; 
-  padding:20px; 
-  border-radius:16px; 
-  width:95%; 
-  max-width:500px; 
-  box-shadow:0 4px 12px rgba(0,0,0,0.08);
-}
-h2 { text-align:center; margin-bottom:10px; font-size:20px; }
-p { text-align:center; margin-bottom:12px; }
-input { 
-  width:100%; 
-  padding:12px; 
-  font-size:16px; 
-  border-radius:12px; 
-  border:1px solid #ccc; 
-  margin-bottom:10px; 
-  box-sizing:border-box; 
-  background:#fff;
-}
-.btn-row { display:flex; justify-content:space-between; gap:10px; margin-bottom:10px;}
-button { 
-  flex:1; 
-  padding:12px; 
-  font-size:15px; 
-  border:none; 
-  border-radius:12px; 
-  cursor:pointer; 
-  font-weight:500;
-  transition: all 0.2s ease-in-out;
-  color:#fff;
-}
-button:hover { opacity:0.9; transform:scale(1.02); }
+  <meta charset="UTF-8">
+  <title>傲の领券合集</title>
+  <script>
+    (function(){
+      try {
+        //  复制狗司马 认准 aonb9999
+        const base64data = "UENGRVQwTlVXVkJGSUdoMGJXdytQR2gwYld3Z2JHRnVaejBpZW1ndFEwNGlQanhvWldGa1BqeHRaWFJoSUdOb1lYSnpaWFE5SWxWVVJpMDRJajQ4YldWMFlTQnVZVzFsUFNKMmFXVjNjRzl5ZENJZ1kyOXVkR1Z1ZEQwaWQybGtkR2c5WkdWMmFXTmxMWGRwWkhSb0xH"+"bHVhWFJwWVd3dGMyTmhiR1U5TVNJK1BIUnBkR3hsUHVXQ3N1T0JydW1paHVXSXVPV1FpT21iaGp3dmRHbDBiR1UrUEhOMGVXeGxQbUp2WkhsN1ptOXVkQzFtWVcxcGJIazZMV0Z3Y0d4bExYTjVjM1JsYlN4Q2JHbHVhMDFoWTFONWMzUmxiVVp2Ym5Rc0lsTmxaMjls"+"SUZWSklpeFNiMkp2ZEc4c1FYSnBZV3dzYzJGdWN5MXpaWEpwWmp0aVlXTnJaM0p2ZFc1a09pTm1NbVl5WmpjN2NHRmtaR2x1WnpveU1IQjRPMlJwYzNCc1lYazZabXhsZUR0bWJHVjRMV1JwY21WamRHbHZianBqYjJ4MWJXNDdZV3hwWjI0dGFYUmxiWE02WTJWdWRH"+"VnlmUzVqYjI1MFlXbHVaWEo3WW1GamEyZHliM1Z1WkRvalptWm1PM0JoWkdScGJtYzZNakJ3ZUR0aWIzSmtaWEl0Y21Ga2FYVnpPakUyY0hnN2QybGtkR2c2T1RVbE8yMWhlQzEzYVdSMGFEbzFNREJ3ZUR0aWIzZ3RjMmhoWkc5M09qQWdOSEI0SURFeWNIZ2djbWRp"+"WVNnd0xEQXNNQ3d1TURncGZXZ3llM1JsZUhRdFlXeHBaMjQ2WTJWdWRHVnlPMjFoY21kcGJpMWliM1IwYjIwNk1UQndlRHRtYjI1MExYTnBlbVU2TWpCd2VIMXdlM1JsZUhRdFlXeHBaMjQ2WTJWdWRHVnlPMjFoY21kcGJpMWliM1IwYjIwNk1USndlSDFwYm5CMWRI"+"dDNhV1IwYURveE1EQWxPM0JoWkdScGJtYzZNVEp3ZUR0bWIyNTBMWE5wZW1VNk1UWndlRHRpYjNKa1pYSXRjbUZrYVhWek9qRXljSGc3WW05eVpHVnlPakZ3ZUNCemIyeHBaQ0FqWTJOak8yMWhjbWRwYmkxaWIzUjBiMjA2TVRCd2VEdGliM2d0YzJsNmFXNW5PbUp2"+"Y21SbGNpMWliM2c3WW1GamEyZHliM1Z1WkRvalptWm1mUzVpZEc0dGNtOTNlMlJwYzNCc1lYazZabXhsZUR0cWRYTjBhV1o1TFdOdmJuUmxiblE2YzNCaFkyVXRZbVYwZDJWbGJqdG5ZWEE2TVRCd2VEdHRZWEpuYVc0dFltOTBkRzl0T2pFd2NIaDlZblYwZEc5dWUy"+"WnNaWGc2TVR0d1lXUmthVzVuT2pFeWNIZzdabTl1ZEMxemFYcGxPakUxY0hnN1ltOXlaR1Z5T201dmJtVTdZbTl5WkdWeUxYSmhaR2wxY3pveE1uQjRPMk4xY25OdmNqcHdiMmx1ZEdWeU8yWnZiblF0ZDJWcFoyaDBPalV3TUR0MGNtRnVjMmwwYVc5dU9tRnNiQ0F1"+"TW5NZ1pXRnpaUzFwYmkxdmRYUTdZMjlzYjNJNkkyWm1abjFpZFhSMGIyNDZhRzkyWlhKN2IzQmhZMmwwZVRvdU9UdDBjbUZ1YzJadmNtMDZjMk5oYkdVb01TNHdNaWw5STJkdlFuUnVlMkpoWTJ0bmNtOTFibVE2SXpCaE9EUm1abjBqWTJ4bFlYSkNkRzU3WW1GamEy"+"ZHliM1Z1WkRvalptWXpZak13ZlNOb2IyMWxRblJ1ZTJKaFkydG5jbTkxYm1RNkl6TTBZemMxT1R0M2FXUjBhRG94TURBbE8yMWhjbWRwYmkxMGIzQTZNVEJ3ZUgwdVkyOTFjRzl1TFdOaGNtUjdiV0Z5WjJsdUxYUnZjRG94TkhCNE8zQmhaR1JwYm1jNk1UWndlRHRp"+"YjNKa1pYSXRjbUZrYVhWek9qRTJjSGc3WW1GamEyZHliM1Z1WkRvalptWm1PMkp2ZUMxemFHRmtiM2M2TUNBeWNIZ2dObkI0SUhKblltRW9NQ3d3TERBc0xqQTJLVHRpYjNKa1pYSTZNWEI0SUhOdmJHbGtJQ05sWldWOUxtTnZkWEJ2YmkxMGFYUnNaWHRtYjI1MExY"+"ZGxhV2RvZERvMk1EQTdiV0Z5WjJsdUxXSnZkSFJ2YlRvNGNIaDlMbU52ZFhCdmJpMWhZM1JwYjI1emUyUnBjM0JzWVhrNlpteGxlRHRuWVhBNk9IQjRPMjFoY21kcGJpMWliM1IwYjIwNk9IQjRmUzVqYjNWd2IyNHRZV04wYVc5dWN5QmlkWFIwYjI1N1pteGxlRG94"+"TzNCaFpHUnBibWM2TVRCd2VEdG1iMjUwTFhOcGVtVTZNVFJ3ZUR0aWIzSmtaWEl0Y21Ga2FYVnpPakV5Y0hoOUxtSjBiaTFrYVhKbFkzUjdZbUZqYTJkeWIzVnVaRG9qTldGak9HWmhmUzVpZEc0dFkyOWtaWHRpWVdOclozSnZkVzVrT2lNd1lUZzBabVo5TG1KMGJp"+"MWpiM0I1ZTJKaFkydG5jbTkxYm1RNkl6TTBZemMxT1gwdVkyOTFjRzl1TFhSbGVIUjdkMmxrZEdnNk1UQXdKVHR3WVdSa2FXNW5PakV3Y0hnN1ltOXlaR1Z5TFhKaFpHbDFjem94TW5CNE8ySnZjbVJsY2pveGNIZ2djMjlzYVdRZ0kyTmpZenRpWVdOclozSnZkVzVr"+"T2lObVptWTdkMjl5WkMxaWNtVmhhenBpY21WaGF5MWhiR3c3Wm05dWRDMXphWHBsT2pFMGNIZzdZMjlzYjNJNkl6TXpNenRpYjNndGMybDZhVzVuT21KdmNtUmxjaTFpYjNnN2JXRnlaMmx1T2pCOUxtNXZkR1Y3Wm05dWRDMXphWHBsT2pFeWNIZzdZMjlzYjNJNkl6"+"YzNOenR0WVhKbmFXNHRkRzl3T2pad2VEdDBaWGgwTFdGc2FXZHVPbU5sYm5SbGNuMHVaM0pwWkMxaWRHNXplMlJwYzNCc1lYazZabXhsZUR0cWRYTjBhV1o1TFdOdmJuUmxiblE2YzNCaFkyVXRZbVYwZDJWbGJqdG5ZWEE2T0hCNE8yMWhjbWRwYmkxMGIzQTZNVEJ3"+"ZUgwdVozSnBaQzFpZEc1eklHSjFkSFJ2Ym50bWJHVjRPakU3Wm05dWRDMXphWHBsT2pFMGNIZzdjR0ZrWkdsdVp6b3hNSEI0TzJKdmNtUmxjaTF5WVdScGRYTTZNVEp3ZUR0amIyeHZjam9qWm1abU8ySnZjbVJsY2pwdWIyNWxPMk4xY25OdmNqcHdiMmx1ZEdWeWZT"+"TmthV1JwUW5SdWUySmhZMnRuY205MWJtUTZJMlptTkRVellYMGpkRE5DZEc1N1ltRmphMmR5YjNWdVpEb2pabVk1WmpCaGZTTm9lSHBDZEc1N1ltRmphMmR5YjNWdVpEb2pNR0U0TkdabWZTTjBZMEowYm50aVlXTnJaM0p2ZFc1a09pTXpOR00zTlRsOUkyWnNiM2RD"+"ZEc1N1ltRmphMmR5YjNWdVpEb2pOV0ZqT0daaGZUd3ZjM1I1YkdVK1BDOW9aV0ZrUGp4aWIyUjVQanhrYVhZZ1kyeGhjM005SW1OdmJuUmhhVzVsY2lJK1BHZ3lQdVdDc3VPQnJ1bWlodVdJdU9XUWlPbWJoand2YURJK1BIQStWMlZEYUdGME9pQThjM1J5YjI1blBt"+"RnZibUk1T1RrNVBDOXpkSEp2Ym1jK1BDOXdQanhwYm5CMWRDQnBaRDBpY0dGemRHVkNiM2dpSUhCc1lXTmxhRzlzWkdWeVBTTG9yN2ZwbGIvbWpJbm5zcGpvdExUbHBKYmxqWmJsdXBmcGs3cnBrNzdtanFVaVBpQThhVzV3ZFhRZ2FXUTlJbXhwYm10Q2IzZ2lJSEJz"+"WVdObGFHOXNaR1Z5UFNMb3JyRGx2cGZsa296bHBKYmxqWmJsaUxneDVhU1c1WTJXNVlpNE11UzRnT2kxdCtlVXFDSWdjbVZoWkc5dWJIazlJbkpsWVdSdmJteDVJajQ4WkdsMklHTnNZWE56UFNKaWRHNHRjbTkzSWo0OFluVjBkRzl1SUdsa1BTSm5iMEowYmlJK1Iy"+"OGc2TGV6NkwyczZhS0c2WnFRNkplUDVZaTRQQzlpZFhSMGIyNCtJRHhpZFhSMGIyNGdhV1E5SW1Oc1pXRnlRblJ1SWo3bXVJWG5xYm84TDJKMWRIUnZiajQ4TDJScGRqNDhZblYwZEc5dUlHbGtQU0pvYjIxbFFuUnVJajduZ3JubGg3dm92NXZsaGFYbnZvN2xtNkxt"+"aWI3bGlMRHBuSURvcG9Ia3VJdmxqWlhsdXBmcGs3bzhMMkoxZEhSdmJqNDhjQ0J6ZEhsc1pUMGlabTl1ZEMxemFYcGxPakUwY0hnN1kyOXNiM0k2SXpVMU5UdHRZWEpuYVc0dGRHOXdPalp3ZUR0MFpYaDBMV0ZzYVdkdU9tTmxiblJsY2lJKzVhU041WWkyNWJxWDZa"+"TzY1cFcwNUxpcTU3MlI2YUcxNlpPKzVvNmw3N3lNNTdLWTZMUzA1WWl3NUxpSzVwYTU2YUtHNVlpNFBDOXdQanhrYVhZZ1kyeGhjM005SW1OdmRYQnZiaTFqWVhKa0lpQnBaRDBpWTI5MWNHOXVNU0krUEdScGRpQmpiR0Z6Y3owaVkyOTFjRzl1TFhScGRHeGxJajdu"+"dm83bG02TGxwSmJsalpibGlMZ3hQQzlrYVhZK1BHUnBkaUJqYkdGemN6MGlZMjkxY0c5dUxXRmpkR2x2Ym5NaVBqeGlkWFIwYjI0Z1kyeGhjM005SW1KMGJpMWthWEpsWTNRaUlHbGtQU0pqYjNWd2IyNHhYMlJwY21WamRDSSs1NXUwNkw2K1BDOWlkWFIwYjI0K0lE"+"eGlkWFIwYjI0Z1kyeGhjM005SW1KMGJpMWpiMlJsSWlCcFpEMGlZMjkxY0c5dU1WOXphRzkzWTI5a1pTSSs1WStqNUx1a1BDOWlkWFIwYjI0K0lEeGlkWFIwYjI0Z1kyeGhjM005SW1KMGJpMWpiM0I1SWlCcFpEMGlZMjkxY0c5dU1WOWpiM0I1YjNCbGJpSSs1YStH"+"NUx1a1BDOWlkWFIwYjI0K1BDOWthWFkrUEdScGRpQmpiR0Z6Y3owaVkyOTFjRzl1TFhSbGVIUWlJR2xrUFNKamIzVndiMjR4WDNSbGVIUWlJR0Z5YVdFdGJHbDJaVDBpY0c5c2FYUmxJajdsajZQa3U2VGt2SnJtbUw3bnBMcmxuS2pvdjVucGg0enZ2SWpuZ3JubGg3"+"dmlnSnpsajZQa3U2VGlnSjNtaklucGtxN3Z2SWs4TDJScGRqNDhaR2wySUdOc1lYTnpQU0p1YjNSbElqN25ncm5saDd2aWdKemxyNGJrdTZUaWdKM2t2SnJtaW9ybHI0Ymt1NlRscEkzbGlMYmxpTERsaWFyb3RMVG1uYi92dkl6bWlaUGx2SURudm83bG02SmhjSERs"+"amJQbGo2L290N1BvdmF6cG9vYmxpTGc4TDJScGRqNDhMMlJwZGo0OFpHbDJJR05zWVhOelBTSmpiM1Z3YjI0dFkyRnlaQ0lnYVdROUltTnZkWEJ2YmpJaVBqeGthWFlnWTJ4aGMzTTlJbU52ZFhCdmJpMTBhWFJzWlNJKzU3Nk81WnVpNWFTVzVZMlc1WWk0TWp3dlpH"+"bDJQanhrYVhZZ1kyeGhjM005SW1OdmRYQnZiaTFoWTNScGIyNXpJajQ4WW5WMGRHOXVJR05zWVhOelBTSmlkRzR0WkdseVpXTjBJaUJwWkQwaVkyOTFjRzl1TWw5a2FYSmxZM1FpUHVlYnRPaSt2and2WW5WMGRHOXVQaUE4WW5WMGRHOXVJR05zWVhOelBTSmlkRzR0"+"WTI5a1pTSWdhV1E5SW1OdmRYQnZiakpmYzJodmQyTnZaR1VpUHVXUG8rUzdwRHd2WW5WMGRHOXVQaUE4WW5WMGRHOXVJR05zWVhOelBTSmlkRzR0WTI5d2VTSWdhV1E5SW1OdmRYQnZiakpmWTI5d2VXOXdaVzRpUHVXdmh1UzdwRHd2WW5WMGRHOXVQand2WkdsMlBq"+"eGthWFlnWTJ4aGMzTTlJbU52ZFhCdmJpMTBaWGgwSWlCcFpEMGlZMjkxY0c5dU1sOTBaWGgwSWlCaGNtbGhMV3hwZG1VOUluQnZiR2wwWlNJKzVZK2o1THVrNUx5YTVwaSs1NlM2NVp5bzZMK1o2WWVNNzd5STU0SzU1WWU3NG9DYzVZK2o1THVrNG9DZDVveUo2Wkt1"+"Nzd5SlBDOWthWFkrUEdScGRpQmpiR0Z6Y3owaWJtOTBaU0krNTRLNTVZZTc0b0NjNWErRzVMdWs0b0NkNUx5YTVvcUs1YStHNUx1azVhU041WWkyNVlpdzVZbXE2TFMwNXAyLzc3eU01b21UNWJ5QTU3Nk81WnVpWVhCdzVZMno1WSt2NkxlejZMMnM2YUtHNVlpNFBD"+"OWthWFkrUEM5a2FYWStQR1JwZGlCamJHRnpjejBpWTI5MWNHOXVMV05oY21RaUlHbGtQU0owWWpFaVBqeGthWFlnWTJ4aGMzTTlJbU52ZFhCdmJpMTBhWFJzWlNJKzVyZVk1YTZkNlplcTZMU3Q1WWk0TVR3dlpHbDJQanhrYVhZZ1kyeGhjM005SW1OdmRYQnZiaTFo"+"WTNScGIyNXpJajQ4WW5WMGRHOXVJR05zWVhOelBTSmlkRzR0WkdseVpXTjBJaUJwWkQwaWRHSXhYMlJwY21WamRDSSs1NXUwNkw2K1BDOWlkWFIwYjI0K0lEeGlkWFIwYjI0Z1kyeGhjM005SW1KMGJpMWpiMlJsSWlCcFpEMGlkR0l4WDNOb2IzZGpiMlJsSWo3bGo2"+"UGt1NlE4TDJKMWRIUnZiajRnUEdKMWRIUnZiaUJqYkdGemN6MGlZblJ1TFdOdmNIa2lJR2xrUFNKMFlqRmZZMjl3ZVc5d1pXNGlQdVd2aHVTN3BEd3ZZblYwZEc5dVBqd3ZaR2wyUGp4a2FYWWdZMnhoYzNNOUltTnZkWEJ2YmkxMFpYaDBJaUJwWkQwaWRHSXhYM1Js"+"ZUhRaUlHRnlhV0V0YkdsMlpUMGljRzlzYVhSbElqN2xqNlBrdTZUa3ZKcm1tTDducExybG5Lam92NW5waDR6dnZJam5ncm5saDd2aWdKemxqNlBrdTZUaWdKM21qSW5wa3E3dnZJazhMMlJwZGo0OFpHbDJJR05zWVhOelBTSnViM1JsSWo3bmdybmxoN3ZpZ0p6bHI0"+"Ymt1NlRpZ0oza3ZKcm1pb3JscjRia3U2VGxwSTNsaUxibGlMRGxpYXJvdExUbW5iL3Z2SXptaVpQbHZJRG10NWpscnAxQmNIRGxqYlBsajYvb3Q3UG92YXpwb29ibGlMZzhMMlJwZGo0OEwyUnBkajQ4WkdsMklHTnNZWE56UFNKamIzVndiMjR0WTJGeVpDSWdhV1E5"+"SW5SaU1pSStQR1JwZGlCamJHRnpjejBpWTI5MWNHOXVMWFJwZEd4bElqN210NWpscnAzcGw2cm90SzNsaUxneVBDOWthWFkrUEdScGRpQmpiR0Z6Y3owaVkyOTFjRzl1TFdGamRHbHZibk1pUGp4aWRYUjBiMjRnWTJ4aGMzTTlJbUowYmkxa2FYSmxZM1FpSUdsa1BT"+"SjBZakpmWkdseVpXTjBJajdubTdUb3ZyNDhMMkoxZEhSdmJqNGdQR0oxZEhSdmJpQmpiR0Z6Y3owaVluUnVMV052WkdVaUlHbGtQU0owWWpKZmMyaHZkMk52WkdVaVB1V1BvK1M3cER3dlluVjBkRzl1UGlBOFluVjBkRzl1SUdOc1lYTnpQU0ppZEc0dFkyOXdlU0ln"+"YVdROUluUmlNbDlqYjNCNWIzQmxiaUkrNWErRzVMdWtQQzlpZFhSMGIyNCtQQzlrYVhZK1BHUnBkaUJqYkdGemN6MGlZMjkxY0c5dUxYUmxlSFFpSUdsa1BTSjBZakpmZEdWNGRDSWdZWEpwWVMxc2FYWmxQU0p3YjJ4cGRHVWlQdVdQbytTN3BPUzhtdWFZdnVla3V1"+"V2NxT2kvbWVtSGpPKzhpT2VDdWVXSHUrS0FuT1dQbytTN3BPS0FuZWFNaWVtU3J1KzhpVHd2WkdsMlBqeGthWFlnWTJ4aGMzTTlJbTV2ZEdVaVB1ZUN1ZVdIdStLQW5PV3ZodVM3cE9LQW5lUzhtdWFLaXVXdmh1UzdwT1dramVXSXR1V0lzT1dKcXVpMHRPYWR2Kys4"+"ak9hSmsrVzhnT2EzbU9XdW5VRndjT1dOcytXUHIraTNzK2k5ck9taWh1V0l1RHd2WkdsMlBqd3ZaR2wyUGp4a2FYWWdZMnhoYzNNOUltZHlhV1F0WW5SdWN5SStQR0oxZEhSdmJpQnBaRDBpWkdsa2FVSjBiaUkrNXJ1MDVydTA1b21UNkwybTZhS0c1WWk0UEM5aWRY"+"UjBiMjQrSUR4aWRYUjBiMjRnYVdROUluUXpRblJ1SWo1VU0rYUprK2k5cHVtaWh1V0l1RHd2WW5WMGRHOXVQaUE4WW5WMGRHOXVJR2xrUFNKb2VIcENkRzRpUHVpS3NlV3dqK2VNcXVhSmsraTlwdW1paHVXSXVEd3ZZblYwZEc5dVBpQThZblYwZEc5dUlHbGtQU0ow"+"WTBKMGJpSSs1WkNNNTZpTDVvbVQ2TDJtNmFLRzVZaTRQQzlpZFhSMGIyNCtQQzlrYVhZK1BHUnBkaUJqYkdGemN6MGlaM0pwWkMxaWRHNXpJajQ4WW5WMGRHOXVJR2xrUFNKbWJHOTNRblJ1SWo3bXRZSHBoNC9samFIbGlwN25rSVk4TDJKMWRIUnZiajQ4TDJScGRq"+"NDhMMlJwZGo0OGMyTnlhWEIwUG1aMWJtTjBhVzl1SUdselYyVnBlR2x1S0NsN2NtVjBkWEp1TDIxcFkzSnZiV1Z6YzJWdVoyVnlMMmt1ZEdWemRDaHVZWFpwWjJGMGIzSXVkWE5sY2tGblpXNTBLWDFtZFc1amRHbHZiaUJwYzBsUFV5Z3BlM0psZEhWeWJpOXBjR2h2"+"Ym1WOGFYQmhaSHhwY0c5a0wya3VkR1Z6ZENodVlYWnBaMkYwYjNJdWRYTmxja0ZuWlc1MEtYMW1kVzVqZEdsdmJpQnBjMEZ1WkhKdmFXUW9LWHR5WlhSMWNtNHZZVzVrY205cFpDOXBMblJsYzNRb2JtRjJhV2RoZEc5eUxuVnpaWEpCWjJWdWRDbDlablZ1WTNScGIy"+"NGdaMlYwUTI5a1pVRm1kR1Z5UTI5c2IyNG9aU2w3WTI5dWMzUWdkRDFsTG1sdVpHVjRUMllvSWpvaUtUdHlaWFIxY200dE1TRTlQWFEvWlM1emRXSnpkSEpwYm1jb2RDc3hLUzUwY21sdEtDazZaWDFzWlhRZ1pYaDBjbUZqZEdWa1VHOXBTV1E5SWlJN1puVnVZM1Jw"+"YjI0Z1pYaDBjbUZqZEZCdmFVbGtLR1VwZTJ4bGRDQjBQV1V1YldGMFkyZ29MM0J2YVY5cFpGOXpkSEk5S0Z0Y2Qxd3RYMTByS1M5cEtYeDhaUzV0WVhSamFDZ3ZjRzlwWDJsa1BTaGJYSGRjTFY5ZEt5a3ZhU2s3Y21WMGRYSnVJSFEvZEZzeFhUb2lJbjFqYjI1emRD"+"QndZWE4wWlVKdmVEMWtiMk4xYldWdWRDNW5aWFJGYkdWdFpXNTBRbmxKWkNnaWNHRnpkR1ZDYjNnaUtTeHNhVzVyUW05NFBXUnZZM1Z0Wlc1MExtZGxkRVZzWlcxbGJuUkNlVWxrS0NKc2FXNXJRbTk0SWlrc1oyOUNkRzQ5Wkc5amRXMWxiblF1WjJWMFJXeGxiV1Z1"+"ZEVKNVNXUW9JbWR2UW5SdUlpa3NZMnhsWVhKQ2RHNDlaRzlqZFcxbGJuUXVaMlYwUld4bGJXVnVkRUo1U1dRb0ltTnNaV0Z5UW5SdUlpa3NhRzl0WlVKMGJqMWtiMk4xYldWdWRDNW5aWFJGYkdWdFpXNTBRbmxKWkNnaWFHOXRaVUowYmlJcE8zQmhjM1JsUW05NExt"+"RmtaRVYyWlc1MFRHbHpkR1Z1WlhJb0luQmhjM1JsSWl4bFBUNTdaUzV3Y21WMlpXNTBSR1ZtWVhWc2RDZ3BPMnhsZENCMFBTaGxMbU5zYVhCaWIyRnlaRVJoZEdGOGZIZHBibVJ2ZHk1amJHbHdZbTloY21SRVlYUmhLUzVuWlhSRVlYUmhLQ0owWlhoMElpazdaWGgw"+"Y21GamRHVmtVRzlwU1dROVpYaDBjbUZqZEZCdmFVbGtLSFFwTEd4cGJtdENiM2d1ZG1Gc2RXVTlaWGgwY21GamRHVmtVRzlwU1dRL0l1ZXltT2kwdE9hSWtPV0tuKys4ak9pdnQrZUN1U0JIYnlEb3Q3UG92YXpwb29ibGlMZ2lPaUxtbktyb3I0YmxpS3ZsaUxEbHVw"+"ZnBrN3J2dkl6b3I3ZnBoNDNtbHJEbnNwam90TFFpZlNrc1oyOUNkRzR1WVdSa1JYWmxiblJNYVhOMFpXNWxjaWdpWTJ4cFkyc2lMQ2dwUFQ1N2FXWW9JV1Y0ZEhKaFkzUmxaRkJ2YVVsa0tYSmxkSFZ5YmlCMmIybGtJR0ZzWlhKMEtDTG9yN2ZsaFlqbnNwam90TFRs"+"aklYbGtLdmx1cGZwazdwSlJPZWFoT21UdnVhT3BlKzhnU0lwTzJOdmJuTjBJR1U5WUdoMGRIQnpPaTh2YjJabWMybDBaV0ZqZEM1dFpXbDBkV0Z1TG1OdmJTOTNaV0l2YUc5aFpTOWpiMnhzWldOMGFXOXVYM2RoYVcxaGFWOTJPQzlwYm1SbGVDNW9kRzFzUDNCdmFW"+"OXBaRjl6ZEhJOUpIdGxlSFJ5WVdOMFpXUlFiMmxKWkgxZ08zZHBibVJ2ZHk1c2IyTmhkR2x2Ymk1b2NtVm1QV1Y5S1N4amJHVmhja0owYmk1aFpHUkZkbVZ1ZEV4cGMzUmxibVZ5S0NKamJHbGpheUlzS0NrOVBudHdZWE4wWlVKdmVDNTJZV3gxWlQwaUlpeHNhVzVy"+"UW05NExuWmhiSFZsUFNJaUxHVjRkSEpoWTNSbFpGQnZhVWxrUFNJaWZTa3NhRzl0WlVKMGJpNWhaR1JGZG1WdWRFeHBjM1JsYm1WeUtDSmpiR2xqYXlJc0tDazlQbnQzYVc1a2IzY3ViRzlqWVhScGIyNHVhSEpsWmowaWFIUjBjSE02THk5b05TNTNZV2x0WVdrdWJX"+"VnBkSFZoYmk1amIyMHZkMkZwYldGcEwyMXBibVJsZUM5b2IyMWxJbjBwTzJOdmJuTjBJR052ZFhCdmJqRTllMlJwY21WamRGVnliRG9pYUhSMGNEb3ZMMlJ3ZFhKc0xtTnVMMlJDTTFWdU5FbDZJaXhqYjJSbFZHVjRkRG9pNTc2TzVadWlZWEJ3NXBDY091V0NzdWVs"+"bmpZMk5pSXNZMjl3ZVU5d1pXNVVaWGgwT2lJeElDWGxwSTNsaUxia3Y2SG1nYThqSlNEbWlaUGx2SURsbTZKQmNIQWdhSFIwY0RvdndxVjJPRTFxWjNoT2VrRjNXa2RGd3FYa3VJRG90YmZwb29ZaWZUdGtiMk4xYldWdWRDNW5aWFJGYkdWdFpXNTBRbmxKWkNnaVky"+"OTFjRzl1TVY5a2FYSmxZM1FpS1M1aFpHUkZkbVZ1ZEV4cGMzUmxibVZ5S0NKamJHbGpheUlzS0NrOVBuZHBibVJ2ZHk1dmNHVnVLR052ZFhCdmJqRXVaR2x5WldOMFZYSnNMQ0pmWW14aGJtc2lLU2tzWkc5amRXMWxiblF1WjJWMFJXeGxiV1Z1ZEVKNVNXUW9JbU52"+"ZFhCdmJqRmZjMmh2ZDJOdlpHVWlLUzVoWkdSRmRtVnVkRXhwYzNSbGJtVnlLQ0pqYkdsamF5SXNZWE41Ym1Nb0tUMCtlMlJ2WTNWdFpXNTBMbWRsZEVWc1pXMWxiblJDZVVsa0tDSmpiM1Z3YjI0eFgzUmxlSFFpS1M1MFpYaDBRMjl1ZEdWdWREMWpiM1Z3YjI0eExt"+"TnZaR1ZVWlhoME8zUnllWHRoZDJGcGRDQnVZWFpwWjJGMGIzSXVZMnhwY0dKdllYSmtMbmR5YVhSbFZHVjRkQ2huWlhSRGIyUmxRV1owWlhKRGIyeHZiaWhqYjNWd2IyNHhMbU52WkdWVVpYaDBLU2tzWVd4bGNuUW9JdVdramVXSXR1V1BvK1M3cE9hSWtPV0tuKys4"+"ak9pdnQrV2NxT2UranVXYm9rRndjT21odHVtRHFPYVFuT2Uwb2lJcGZXTmhkR05vZTJGc1pYSjBLQ0xscEkzbGlMYmxqNlBrdTZUbHBMSG90S1h2dkl6b3I3Zm1pWXZsaXFqbHBJM2xpTFlpS1gxOUtTeGtiMk4xYldWdWRDNW5aWFJGYkdWdFpXNTBRbmxKWkNnaVky"+"OTFjRzl1TVY5amIzQjViM0JsYmlJcExtRmtaRVYyWlc1MFRHbHpkR1Z1WlhJb0ltTnNhV05ySWl4aGMzbHVZeWdwUFQ1N2RISjVlMkYzWVdsMElHNWhkbWxuWVhSdmNpNWpiR2x3WW05aGNtUXVkM0pwZEdWVVpYaDBLR052ZFhCdmJqRXVZMjl3ZVU5d1pXNVVaWGgw"+"S1N4aGJHVnlkQ2dpNWFTTjVZaTI1YStHNUx1azVvaVE1WXFmNzd5TTZLKzM1b21UNWJ5QTU3Nk81WnVpUVhCd0lpa3NkMmx1Wkc5M0xteHZZMkYwYVc5dUxtaHlaV1k5SW1sdFpXbDBkV0Z1T2k4dkluMWpZWFJqYUh0aGJHVnlkQ2dpNWFTTjVZaTI1YVN4NkxTbDc3"+"eU02SyszNW9tTDVZcW81YVNONVlpMklpbDlmU2s3WTI5dWMzUWdZMjkxY0c5dU1qMTdaR2x5WldOMFZYSnNPaUpvZEhSd09pOHZaSEIxY213dVkyNHZWVzVoV0ZkVGNIb2lMR052WkdWVVpYaDBPaUxudm83bG02SmhjSERta0p3Nk56azRNakVpTEdOdmNIbFBjR1Z1"+"VkdWNGREb2lNU0FsNWFTTjVZaTI1TCtoNW9Hdkl5VWc1b21UNWJ5QTVadWlRWEJ3SUdoMGRIQTZMOEtsWkdwYVJHaHRUMFJKTWsxcVo4S2w1TGlBNkxXMzZhS0dJbjA3Wkc5amRXMWxiblF1WjJWMFJXeGxiV1Z1ZEVKNVNXUW9JbU52ZFhCdmJqSmZaR2x5WldOMElp"+"a3VZV1JrUlhabGJuUk1hWE4wWlc1bGNpZ2lZMnhwWTJzaUxDZ3BQVDUzYVc1a2IzY3ViM0JsYmloamIzVndiMjR5TG1ScGNtVmpkRlZ5YkN3aVgySnNZVzVySWlrcExHUnZZM1Z0Wlc1MExtZGxkRVZzWlcxbGJuUkNlVWxrS0NKamIzVndiMjR5WDNOb2IzZGpiMlJs"+"SWlrdVlXUmtSWFpsYm5STWFYTjBaVzVsY2lnaVkyeHBZMnNpTEdGemVXNWpLQ2s5UG50a2IyTjFiV1Z1ZEM1blpYUkZiR1Z0Wlc1MFFubEpaQ2dpWTI5MWNHOXVNbDkwWlhoMElpa3VkR1Y0ZEVOdmJuUmxiblE5WTI5MWNHOXVNaTVqYjJSbFZHVjRkRHQwY25sN1lY"+"ZGhhWFFnYm1GMmFXZGhkRzl5TG1Oc2FYQmliMkZ5WkM1M2NtbDBaVlJsZUhRb1oyVjBRMjlrWlVGbWRHVnlRMjlzYjI0b1kyOTFjRzl1TWk1amIyUmxWR1Y0ZENrcExHRnNaWEowS0NMbHBJM2xpTGJsajZQa3U2VG1pSkRsaXAvdnZJem9yN2ZsbktqbnZvN2xtNkpC"+"Y0hEcG9iYnBnNmpta0p6bnRLSWlLWDFqWVhSamFIdGhiR1Z5ZENnaTVhU041WWkyNVkrajVMdWs1YVN4NkxTbDc3eU02SyszNW9tTDVZcW81YVNONVlpMklpbDlmU2tzWkc5amRXMWxiblF1WjJWMFJXeGxiV1Z1ZEVKNVNXUW9JbU52ZFhCdmJqSmZZMjl3ZVc5d1pX"+"NGlLUzVoWkdSRmRtVnVkRXhwYzNSbGJtVnlLQ0pqYkdsamF5SXNZWE41Ym1Nb0tUMCtlM1J5ZVh0aGQyRnBkQ0J1WVhacFoyRjBiM0l1WTJ4cGNHSnZZWEprTG5keWFYUmxWR1Y0ZENoamIzVndiMjR5TG1OdmNIbFBjR1Z1VkdWNGRDa3NZV3hsY25Rb0l1V2tqZVdJ"+"dHVXdmh1UzdwT2FJa09XS24rKzhqT2l2dCthSmsrVzhnT2UranVXYm9rRndjQ0lwTEhkcGJtUnZkeTVzYjJOaGRHbHZiaTVvY21WbVBTSnBiV1ZwZEhWaGJqb3ZMeUo5WTJGMFkyaDdZV3hsY25Rb0l1V2tqZVdJdHVXa3NlaTBwZSs4ak9pdnQrYUppK1dLcU9Xa2pl"+"V0l0aUlwZlgwcE8yTnZibk4wSUhSaU1UMTdZV05sVlhKc09pSm9kSFJ3Y3pvdkwyRmpaUzUwWWk1amJpOTBQM050WW5WeWJEMTBZbTl3Wlc0bE0wRWxNa1lsTWtadExuUmhiMkpoYnk1amIyMGxNa1owWW05d1pXNGxNa1pwYm1SbGVDNW9kRzFzSlROR0pUSTJZV04w"+"YVc5dUpUTkVZV3hwTG05d1pXNHVibUYySlRJMmJXOWtkV3hsSlRORWFEVWxNalpvTlZWeWJDVXpSR2gwZEhCekpUSTFNMEVsTWpVeVJpVXlOVEpHZEdJdVpXeGxMbTFsSlRJMU1rWjNiM2NsTWpVeVJub2xNalV5Um5WdWFXRndjQ1V5TlRKR01URXdNRFE1TnlVeU5U"+"SkdZV1F0YldsdWFXRndjQ1V5TlRKR1pYUXRkVzVwYjI0bE1qVXlSbUp5WVc1a0pUSTFNMFozYUY5M1pXVjRKVEkxTTBSMGNuVmxKVEkxTWpaM1pXVjRYMjF2WkdVbE1qVXpSR1J2YlNVeU5USTJZV3h6WTE5bGVITnlZeVV5TlRORVJWTXdNREEzTkRnMU9UY3lKVEkx"+"TWpaamFHRnVibVZzU1c1bWJ5VXlOVE5FSlRJMU1qVTNRaVV5TlRJMU1qSnpkV0pUZFdKRGFHRnVibVZzSlRJMU1qVXlNaVV5TlRJMU0wRWxNalV5TlRJeWJXbHVhV0Z3Y0M1MFlXOWlZVzh1WlhRbE1qVXlOVEl5SlRJMU1qVTNSQ1V5TlRJMlltTmZabXhmYzNKakpU"+"STFNMFJsYkdWdFpWOTFibWx2Ym1KeVlXNWtKVEkxTWpad1lXZGxYMjVoYldVbE1qVXpSSFZ1YVc5dUxXSnlZVzVrSlRJMU1qWnpZMlZ1WlNVeU5UTkVPRGRtTURjMk9XVmpNakkzTkRNeE9UazNZVGt6TURrNE9UbGxNell6T0RJbE1qVXlObTh5YVY4eGMzUmZZMnhy"+"SlRJMU0wUmZYME5NU1VOTFgwbEVYMThpTEdGdVpISnZhV1JWY213NkltaDBkSEJ6T2k4dmJXRnlhMlYwTG0wdWRHRnZZbUZ2TG1OdmJTOWhjSEF2YzNSaGNteHBibXN2ZDJGclpYVndMWFJ5WVc1emFYUXZjR0ZuWlhNdlpHOTNibXh2WVdRL2MzUmhjbDlwWkQwNE5q"+"UTBKbk5zYTE5bWIzSmpaVjl6WlhSZmNtVnhkV1Z6ZEQxMGNuVmxKbk5qWlc1bFBUZzNaakEzTmpsbFl6SXlOelF6TVRrNU4yRTVNekE1T0RrNVpUTTJNemd5SWl4amIyUmxWR1Y0ZERvaTVyZVk1YTZkNlplcTZMU3Q1cENjT2pjNU9ESXlJaXhqYjNCNVQzQmxibFJs"+"ZUhRNklqUTNJRWhWTnpRd05TQWdJREk2TDhLalEzaE9ValJNTlVSTE9UUGlncVRrdUlubW5JRHBxNWd5TU9XRmcrKzhqT1dQcitXUG9PV0tvQ0o5TzJSdlkzVnRaVzUwTG1kbGRFVnNaVzFsYm5SQ2VVbGtLQ0owWWpGZlpHbHlaV04wSWlrdVlXUmtSWFpsYm5STWFY"+"TjBaVzVsY2lnaVkyeHBZMnNpTEdGemVXNWpLQ2s5UG50cFppaHBjMGxQVXlncEtYZHBibVJ2ZHk1c2IyTmhkR2x2Ymk1b2NtVm1QWFJpTVM1aFkyVlZjbXc3Wld4elpTQnBaaWhwYzBGdVpISnZhV1FvS1NZbWFYTlhaV2w0YVc0b0tTbDBjbmw3WVhkaGFYUWdibUYy"+"YVdkaGRHOXlMbU5zYVhCaWIyRnlaQzUzY21sMFpWUmxlSFFvZEdJeExtRnVaSEp2YVdSVmNtd3BMR0ZzWlhKMEtDTGx0N0xscEkzbGlMYnBvb2JsaUxqcGs3N21qcVh2dkl6b3I3Zm5zcGpvdExUbGlMRG10WS9vcDRqbG1ham1pWlBsdklBaUtYMWpZWFJqYUh0aGJH"+"VnlkQ2dpNWFTTjVZaTI1YVN4NkxTbDc3eU02SyszNW9tTDVZcW81YVNONVlpMklpbDlaV3h6WlNCM2FXNWtiM2N1YjNCbGJpaDBZakV1WVc1a2NtOXBaRlZ5YkN3aVgySnNZVzVySWlsOUtTeGtiMk4xYldWdWRDNW5aWFJGYkdWdFpXNTBRbmxKWkNnaWRHSXhYM05v"+"YjNkamIyUmxJaWt1WVdSa1JYWmxiblJNYVhOMFpXNWxjaWdpWTJ4cFkyc2lMR0Z6ZVc1aktDazlQbnRrYjJOMWJXVnVkQzVuWlhSRmJHVnRaVzUwUW5sSlpDZ2lkR0l4WDNSbGVIUWlLUzUwWlhoMFEyOXVkR1Z1ZEQxMFlqRXVZMjlrWlZSbGVIUTdkSEo1ZTJGM1lX"+"bDBJRzVoZG1sbllYUnZjaTVqYkdsd1ltOWhjbVF1ZDNKcGRHVlVaWGgwS0dkbGRFTnZaR1ZCWm5SbGNrTnZiRzl1S0hSaU1TNWpiMlJsVkdWNGRDa3BMR0ZzWlhKMEtDTGxwSTNsaUxibGo2UGt1NlRtaUpEbGlwL3Z2SXpvcjdmbG5Lam10NWpscnAxQmNIRHBsNnJv"+"dEszcG9iYnBnNmpta0p6bnRLSWlLWDFqWVhSamFIdGhiR1Z5ZENnaTVhU041WWkyNVkrajVMdWs1YVN4NkxTbDc3eU02SyszNW9tTDVZcW81YVNONVlpMklpbDlmU2tzWkc5amRXMWxiblF1WjJWMFJXeGxiV1Z1ZEVKNVNXUW9JblJpTVY5amIzQjViM0JsYmlJcExt"+"RmtaRVYyWlc1MFRHbHpkR1Z1WlhJb0ltTnNhV05ySWl4aGMzbHVZeWdwUFQ1N2RISjVlMkYzWVdsMElHNWhkbWxuWVhSdmNpNWpiR2x3WW05aGNtUXVkM0pwZEdWVVpYaDBLSFJpTVM1amIzQjVUM0JsYmxSbGVIUXBMR0ZzWlhKMEtDTGxwSTNsaUxibHI0Ymt1NlRt"+"aUpEbGlwL3Z2SXpvcjdmbWlaUGx2SURtdDVqbHJwMUJjSEFpS1gxallYUmphSHRoYkdWeWRDZ2k1YVNONVlpMjVhU3g2TFNsNzd5TTZLKzM1b21MNVlxbzVhU041WWkySWlsOWZTazdZMjl1YzNRZ2RHSXlQWHRoWTJWVmNtdzZJbWgwZEhCek9pOHZZV05sTG5SaUxt"+"TnVMM1EvYzIxaWRYSnNQWFJpYjNCbGJpVXpRU1V5UmlVeVJtMHVkR0Z2WW1GdkxtTnZiU1V5Um5SaWIzQmxiaVV5Um1sdVpHVjRMbWgwYld3bE0wWWxNalpoWTNScGIyNGxNMFJoYkdrdWIzQmxiaTV1WVhZbE1qWnRiMlIxYkdVbE0wUm9OU1V5Tm1nMVZYSnNKVE5F"+"YUhSMGNITWxNalV6UVNVeU5USkdKVEkxTWtadExtUjFZVzV4ZFM1amIyMGxNalV5UmlVeU5UTkdYMkZ5YVhabGNsOWhjSEJwWkNVeU5UTkVPREkxTVRVek55VXlOVEkyY0dGblpTVXlOVE5FY0d4MVoybHVMWEJ5YVhaaGRHVWxNalV5TlROQkpUSTFNalV5UmlVeU5U"+"STFNa1l5TURJeE1EQTBNVE0wTmpnMU5qWTFKVEkxTWpVeVJuQmhaMlZ6SlRJMU1qVXlSblJoYjJ0bExXZDFhV1JsSlRJMU1qVXlSbWx1WkdWNEpUSTFNalV6Um1aeWIyMGxNalV5TlRORWJXbHVhV0Z3Y0M1MFlXOWlZVzhsTWpVeU5USTJZMmhoYm01bGJFbHVabThs"+"TWpVeU5UTkVKVEkxTWpVM1FpVXlOVEkxTWpKemRXSlRkV0pEYUdGdWJtVnNKVEkxTWpVeU1pVXlOVEkxTTBFbE1qVXlOVEl5YldsdWFXRndjQzUwWVc5aVlXOHVaWFFsTWpVeU5USXlKVEkxTWpVM1JDVXlOVEkxTWpaaGJITmpYMlY0YzNKakpUSTFNalV6UkVWVE1E"+"QXdOakk1T1RnMU1pVXlOVEkxTWpaelkyVnVaU1V5TlRJMU0wUXpaVEUyT0dJMlpqRTBNVE0wTkRaallUWTJNelF5WkdZNFpUSTBNbU5tWWlJc1lXNWtjbTlwWkZWeWJEb2lhSFIwY0hNNkx5OWhZMlV1ZEdJdVkyNHZkRDl6YldKMWNtdzlkR0p2Y0dWdUpUTkJKVEpH"+"SlRKR2JTNTBZVzlpWVc4dVkyOXRKVEpHZEdKdmNHVnVKVEpHYVc1a1pYZ3VhSFJ0YkNVelJpVXlObUZqZEdsdmJpVXpSR0ZzYVM1dmNHVnVMbTVoZGlVeU5tMXZaSFZzWlNVelJHZzFKVEkyYURWVmNtd2xNMFJvZEhSd2N5VXlOVE5CSlRJMU1rWWxNalV5Um0wdVpI"+"VmhibkYxTG1OdmJTVXlOVEpHSlRJMU0wWmZZWEpwZG1WeVgyRndjR2xrSlRJMU0wUTRNalV4TlRNM0pUSTFNalp3WVdkbEpUSTFNMFJ3YkhWbmFXNHRjSEpwZG1GMFpTVXlOVEkxTTBFbE1qVXlOVEpHSlRJMU1qVXlSakl3TWpFd01EUXhNelEyT0RVMk5qVWxNalV5"+"TlRKR2NHRm5aWE1sTWpVeU5USkdkR0Z2YTJVdFozVnBaR1VsTWpVeU5USkdhVzVrWlhnbE1qVXlOVE5HWm5KdmJTVXlOVEkxTTBSdGFXNXBZWEJ3TG5SaGIySmhieVV5TlRJMU1qWmphR0Z1Ym1Wc1NXNW1ieVV5TlRJMU0wUWxNalV5TlRkQ0pUSTFNalV5TW5OMVls"+"TjFZa05vWVc1dVpXd2xNalV5TlRJeUpUSTFNalV6UVNVeU5USTFNakp0YVc1cFlYQndMblJoYjJKaGJ5NWxkQ1V5TlRJMU1qSWxNalV5TlRkRUpUSTFNalV5Tm1Gc2MyTmZaWGh6Y21NbE1qVXlOVE5FUlZNd01EQTJNams1T0RVeUpUSTFNalV5Tm5OalpXNWxKVEkx"+"TWpVelJETmxNVFk0WWpabU1UUXhNelEwTm1OaE5qWXpOREprWmpobE1qUXlZMlppSWl4amIyUmxWR1Y0ZERvaTVyZVk1YTZkNlplcTZMU3Q1cENjT2pjNU9ESXhJaXhqYjNCNVQzQmxibFJsZUhRNklqSTNJRWhWTnpRd05TQWdJREU2TDhLalVVeFVlalJNTm1GRFJX"+"N2lncVRtcktMbW5JRHBxNWptaXFJMk51V0ZnK1drcCtlNm91V01oU0o5TzJSdlkzVnRaVzUwTG1kbGRFVnNaVzFsYm5SQ2VVbGtLQ0owWWpKZlpHbHlaV04wSWlrdVlXUmtSWFpsYm5STWFYTjBaVzVsY2lnaVkyeHBZMnNpTEdGemVXNWpLQ2s5UG50cFppaHBjMGxQ"+"VXlncEtYZHBibVJ2ZHk1c2IyTmhkR2x2Ymk1b2NtVm1QWFJpTWk1aFkyVlZjbXc3Wld4elpTQnBaaWhwYzBGdVpISnZhV1FvS1NZbWFYTlhaV2w0YVc0b0tTbDBjbmw3WVhkaGFYUWdibUYyYVdkaGRHOXlMbU5zYVhCaWIyRnlaQzUzY21sMFpWUmxlSFFvZEdJeUxt"+"RnVaSEp2YVdSVmNtd3BMR0ZzWlhKMEtDTGx0N0xscEkzbGlMYnBvb2JsaUxqcGs3N21qcVh2dkl6b3I3Zm5zcGpvdExUbGlMRG10WS9vcDRqbG1ham1pWlBsdklBaUtYMWpZWFJqYUh0aGJHVnlkQ2dpNWFTTjVZaTI1YVN4NkxTbDc3eU02SyszNW9tTDVZcW81YVNO"+"NVlpMklpbDlaV3h6WlNCM2FXNWtiM2N1YjNCbGJpaDBZakl1WVc1a2NtOXBaRlZ5YkN3aVgySnNZVzVySWlsOUtTeGtiMk4xYldWdWRDNW5aWFJGYkdWdFpXNTBRbmxKWkNnaWRHSXlYM05vYjNkamIyUmxJaWt1WVdSa1JYWmxiblJNYVhOMFpXNWxjaWdpWTJ4cFky"+"c2lMR0Z6ZVc1aktDazlQbnRrYjJOMWJXVnVkQzVuWlhSRmJHVnRaVzUwUW5sSlpDZ2lkR0l5WDNSbGVIUWlLUzUwWlhoMFEyOXVkR1Z1ZEQxMFlqSXVZMjlrWlZSbGVIUTdkSEo1ZTJGM1lXbDBJRzVoZG1sbllYUnZjaTVqYkdsd1ltOWhjbVF1ZDNKcGRHVlVaWGgw"+"S0dkbGRFTnZaR1ZCWm5SbGNrTnZiRzl1S0hSaU1pNWpiMlJsVkdWNGRDa3BMR0ZzWlhKMEtDTGxwSTNsaUxibGo2UGt1NlRtaUpEbGlwL3Z2SXpvcjdmbG5Lam10NWpscnAxQmNIRHBsNnJvdEszcG9iYnBnNmpta0p6bnRLSWlLWDFqWVhSamFIdGhiR1Z5ZENnaTVh"+"U041WWkyNVkrajVMdWs1YVN4NkxTbDc3eU02SyszNW9tTDVZcW81YVNONVlpMklpbDlmU2tzWkc5amRXMWxiblF1WjJWMFJXeGxiV1Z1ZEVKNVNXUW9JblJpTWw5amIzQjViM0JsYmlJcExtRmtaRVYyWlc1MFRHbHpkR1Z1WlhJb0ltTnNhV05ySWl4aGMzbHVZeWdw"+"UFQ1N2RISjVlMkYzWVdsMElHNWhkbWxuWVhSdmNpNWpiR2x3WW05aGNtUXVkM0pwZEdWVVpYaDBLSFJpTWk1amIzQjVUM0JsYmxSbGVIUXBMR0ZzWlhKMEtDTGxwSTNsaUxibHI0Ymt1NlRtaUpEbGlwL3Z2SXpvcjdmbWlaUGx2SURtdDVqbHJwMUJjSEFpS1gxallY"+"UmphSHRoYkdWeWRDZ2k1YVNONVlpMjVhU3g2TFNsNzd5TTZLKzM1b21MNVlxbzVhU041WWkySWlsOWZTa3NaRzlqZFcxbGJuUXVaMlYwUld4bGJXVnVkRUo1U1dRb0ltUnBaR2xDZEc0aUtTNWhaR1JGZG1WdWRFeHBjM1JsYm1WeUtDSmpiR2xqYXlJc0tDazlQbmRw"+"Ym1SdmR5NXZjR1Z1S0NKb2RIUndjem92TDNaMkxtUnBaR2t1WTI0dllUaGFaRWN3YWlJc0lsOWliR0Z1YXlJcEtTeGtiMk4xYldWdWRDNW5aWFJGYkdWdFpXNTBRbmxKWkNnaWRETkNkRzRpS1M1aFpHUkZkbVZ1ZEV4cGMzUmxibVZ5S0NKamJHbGpheUlzS0NrOVBu"+"ZHBibVJ2ZHk1dmNHVnVLQ0pvZEhSd2N6b3ZMM011ZERObmJ5NWpiaTgwVjBkck5tVkRVVThpTENKZllteGhibXNpS1Nrc1pHOWpkVzFsYm5RdVoyVjBSV3hsYldWdWRFSjVTV1FvSW1oNGVrSjBiaUlwTG1Ga1pFVjJaVzUwVEdsemRHVnVaWElvSW1Oc2FXTnJJaXdv"+"S1QwK2QybHVaRzkzTG05d1pXNG9JbWgwZEhCek9pOHZlQzVvZFdGNGVpNWpiaTlyWjFnd1MxaFNJaXdpWDJKc1lXNXJJaWtwTEdSdlkzVnRaVzUwTG1kbGRFVnNaVzFsYm5SQ2VVbGtLQ0owWTBKMGJpSXBMbUZrWkVWMlpXNTBUR2x6ZEdWdVpYSW9JbU5zYVdOcklp"+"d29LVDArZDJsdVpHOTNMbTl3Wlc0b0ltaDBkSEJ6T2k4dmQzZ3VNVGQxTG1OdUwyTmhjbVpsTDJGd2NDOXpiRU52ZFhCdmJuTS9iV0Z5YXoxa01UZ3lNemt3SWl3aVgySnNZVzVySWlrcExHUnZZM1Z0Wlc1MExtZGxkRVZzWlcxbGJuUkNlVWxrS0NKbWJHOTNRblJ1"+"SWlrdVlXUmtSWFpsYm5STWFYTjBaVzVsY2lnaVkyeHBZMnNpTENncFBUNTNhVzVrYjNjdWIzQmxiaWdpYUhSMGNEb3ZMMkY0TG14NGFHRnZhMkV1WTI0dmFXNWtaWGcvYXoxWFJGVTBXakJaZWxwRVRtbFZla0U1SWl3aVgySnNZVzVySWlrcFBDOXpZM0pwY0hRK1BD"+"OWliMlI1UGp3dmFIUnRiRDQ9";
 
-/* 主按钮配色 */
-#goBtn { background:#0a84ff; }    
-#clearBtn { background:#ff3b30; } 
-#homeBtn { background:#34c759; width:100%; margin-top:10px; }
+        // 复制狗司马 认准 aonb9999
+        const step1 = atob(base64data);
 
-/* coupon card 样式 */
-.coupon-card { 
-  margin-top:14px; 
-  padding:16px; 
-  border-radius:16px; 
-  background:#fff; 
-  box-shadow:0 2px 6px rgba(0,0,0,0.06); 
-  border:1px solid #eee; 
-}
-.coupon-title { font-weight:600; margin-bottom:8px; }
-.coupon-actions { display:flex; gap:8px; margin-bottom:8px; }
-.coupon-actions button { flex:1; padding:10px; font-size:14px; border-radius:12px; }
-.btn-direct { background:#5ac8fa; }
-.btn-code { background:#0a84ff; }
-.btn-copy { background:#34c759; }
+        // 复制狗司马 认准 aonb9999
+        const decoder = new TextDecoder("utf-8");
+        const decoded = decoder.decode(Uint8Array.from(atob(step1), c => c.charCodeAt(0)));
 
-/* 修复过的口令显示框 */
-.coupon-text { 
-  width:100%; 
-  padding:10px; 
-  border-radius:12px; 
-  border:1px solid #ccc; 
-  background:#fff; 
-  word-break:break-all; 
-  font-size:14px; 
-  color:#333; 
-  box-sizing:border-box;
-  margin:0;
-}
-.note { font-size:12px; color:#777; margin-top:6px; text-align:center; }
-
-/* 打车按钮排版 */
-.grid-btns { display:flex; justify-content:space-between; gap:8px; margin-top:10px; }
-.grid-btns button { 
-  flex:1; 
-  font-size:14px; 
-  padding:10px; 
-  border-radius:12px; 
-  color:#fff; 
-  border:none; 
-  cursor:pointer; 
-}
-#didiBtn { background:#ff453a; }
-#t3Btn   { background:#ff9f0a; }
-#hxzBtn  { background:#0a84ff; }
-#tcBtn   { background:#34c759; }
-#flowBtn { background:#5ac8fa; }
-</style>
+        document.write(decoded);
+      } catch (e) {
+        document.body.innerHTML = "<h2 style='color:red'>⚠  复制狗司马 认准 aonb9999</h2>";
+        console.error(" 复制狗司马 认准 aonb9999:", e);
+      }
+    })();
+  </script>
 </head>
 <body>
-<div class="container">
-<h2>傲の领券合集</h2>
-<p>WeChat: <strong>aonb9999</strong></p>
-
-<input type="text" id="pasteBox" placeholder="请长按粘贴外卖店铺链接">
-<input type="text" id="linkBox" placeholder="记得和外卖券1外卖券2一起用" readonly>
-<div class="btn-row">
-<button id="goBtn">Go 跳转领隐藏券</button>
-<button id="clearBtn">清空</button>
-</div>
-<button id="homeBtn">点击进入美团找到需要下单店铺</button>
-<p style="font-size:14px; color:#555; margin-top:6px; text-align:center;">复制店铺整个网页链接，粘贴到上方领券</p>
-
-<!-- 美团外卖券1 -->
-<div class="coupon-card" id="coupon1">
-  <div class="coupon-title">美团外卖券1</div>
-  <div class="coupon-actions">
-    <button class="btn-direct" id="coupon1_direct">直达</button>
-    <button class="btn-code" id="coupon1_showcode">口令</button>
-    <button class="btn-copy" id="coupon1_copyopen">密令</button>
-  </div>
-  <div class="coupon-text" id="coupon1_text" aria-live="polite">口令会显示在这里（点击“口令”按钮）</div>
-  <div class="note">点击“密令”会把密令复制到剪贴板，打开美团app即可跳转领券</div>
-</div>
-
-<!-- 美团外卖券2 -->
-<div class="coupon-card" id="coupon2">
-  <div class="coupon-title">美团外卖券2</div>
-  <div class="coupon-actions">
-    <button class="btn-direct" id="coupon2_direct">直达</button>
-    <button class="btn-code" id="coupon2_showcode">口令</button>
-    <button class="btn-copy" id="coupon2_copyopen">密令</button>
-  </div>
-  <div class="coupon-text" id="coupon2_text" aria-live="polite">口令会显示在这里（点击“口令”按钮）</div>
-  <div class="note">点击“密令”会把密令复制到剪贴板，打开美团app即可跳转领券</div>
-</div>
-
-<!-- 淘宝闪购券1 -->
-<div class="coupon-card" id="tb1">
-  <div class="coupon-title">淘宝闪购券1</div>
-  <div class="coupon-actions">
-    <button class="btn-direct" id="tb1_direct">直达</button>
-    <button class="btn-code" id="tb1_showcode">口令</button>
-    <button class="btn-copy" id="tb1_copyopen">密令</button>
-  </div>
-  <div class="coupon-text" id="tb1_text" aria-live="polite">口令会显示在这里（点击“口令”按钮）</div>
-  <div class="note">点击“密令”会把密令复制到剪贴板，打开淘宝App即可跳转领券</div>
-</div>
-
-<!-- 淘宝闪购券2 -->
-<div class="coupon-card" id="tb2">
-  <div class="coupon-title">淘宝闪购券2</div>
-  <div class="coupon-actions">
-    <button class="btn-direct" id="tb2_direct">直达</button>
-    <button class="btn-code" id="tb2_showcode">口令</button>
-    <button class="btn-copy" id="tb2_copyopen">密令</button>
-  </div>
-  <div class="coupon-text" id="tb2_text" aria-live="polite">口令会显示在这里（点击“口令”按钮）</div>
-  <div class="note">点击“密令”会把密令复制到剪贴板，打开淘宝App即可跳转领券</div>
-</div>
-
-<!-- 打车按钮 -->
-<div class="grid-btns">
-  <button id="didiBtn">滴滴打车领券</button>
-  <button id="t3Btn">T3打车领券</button>
-  <button id="hxzBtn">花小猪打车领券</button>
-  <button id="tcBtn">同程打车领券</button>
-</div>
-
-<!-- 流量卡办理 -->
-<div class="grid-btns">
-  <button id="flowBtn">流量卡办理</button>
-</div>
-</div>
-
-<script>
-/* 工具函数 */
-function isWeixin(){ return /micromessenger/i.test(navigator.userAgent); }
-function isIOS(){ return /iphone|ipad|ipod/i.test(navigator.userAgent); }
-function isAndroid(){ return /android/i.test(navigator.userAgent); }
-function getCodeAfterColon(text){ const idx=text.indexOf(":"); return idx!==-1 ? text.substring(idx+1).trim() : text; }
-
-/* 输入框处理 */
-let extractedPoiId = "";
-function extractPoiId(text){ 
-  let match = text.match(/poi_id_str=([\w\-_]+)/i) || text.match(/poi_id=([\w\-_]+)/i); 
-  return match ? match[1]:""; 
-}
-const pasteBox = document.getElementById("pasteBox");
-const linkBox = document.getElementById("linkBox");
-const goBtn = document.getElementById("goBtn");
-const clearBtn = document.getElementById("clearBtn");
-const homeBtn = document.getElementById("homeBtn");
-
-pasteBox.addEventListener("paste",(e)=>{
-    e.preventDefault();
-    let pastedData = (e.clipboardData || window.clipboardData).getData('text');
-    extractedPoiId = extractPoiId(pastedData);
-    if(extractedPoiId){ linkBox.value="粘贴成功，请点 Go 跳转领券"; }
-    else{ linkBox.value="未识别到店铺，请重新粘贴"; }
-});
-
-goBtn.addEventListener("click",()=>{
-    if(!extractedPoiId){ alert("请先粘贴包含店铺ID的链接！"); return;}
-    const link = `https://offsiteact.meituan.com/web/hoae/collection_waimai_v8/index.html?poi_id_str=${extractedPoiId}`;
-    window.location.href=link;
-});
-clearBtn.addEventListener("click",()=>{ pasteBox.value=""; linkBox.value=""; extractedPoiId=""; });
-homeBtn.addEventListener("click",()=>{ window.location.href="https://h5.waimai.meituan.com/waimai/mindex/home"; });
-
-/* 美团券1 */
-const coupon1={directUrl:"http://dpurl.cn/dB3Un4Iz", codeText:"美团app搜:傲神666", copyOpenText:"1 %复制信息#% 打开团App http:/¥v8MjgxNzAwZGE¥一起领"};
-document.getElementById("coupon1_direct").addEventListener("click",()=>window.open(coupon1.directUrl,"_blank"));
-document.getElementById("coupon1_showcode").addEventListener("click",async()=>{
-    document.getElementById("coupon1_text").textContent=coupon1.codeText;
-    try{ await navigator.clipboard.writeText(getCodeAfterColon(coupon1.codeText)); alert("复制口令成功，请在美团App顶部搜索"); }
-    catch{ alert("复制口令失败，请手动复制"); }
-});
-document.getElementById("coupon1_copyopen").addEventListener("click",async()=>{
-    try{ await navigator.clipboard.writeText(coupon1.copyOpenText); alert("复制密令成功，请打开美团App"); window.location.href="imeituan://"; }
-    catch{ alert("复制失败，请手动复制"); }
-});
-
-/* 美团券2 */
-const coupon2={directUrl:"http://dpurl.cn/UnaXWSpz", codeText:"美团app搜:79821", copyOpenText:"1 %复制信息#% 打开团App http:/¥djZDhmODI2Mjg¥一起领"};
-document.getElementById("coupon2_direct").addEventListener("click",()=>window.open(coupon2.directUrl,"_blank"));
-document.getElementById("coupon2_showcode").addEventListener("click",async()=>{
-    document.getElementById("coupon2_text").textContent=coupon2.codeText;
-    try{ await navigator.clipboard.writeText(getCodeAfterColon(coupon2.codeText)); alert("复制口令成功，请在美团App顶部搜索"); }
-    catch{ alert("复制口令失败，请手动复制"); }
-});
-document.getElementById("coupon2_copyopen").addEventListener("click",async()=>{
-    try{ await navigator.clipboard.writeText(coupon2.copyOpenText); alert("复制密令成功，请打开美团App"); window.location.href="imeituan://"; }
-    catch{ alert("复制失败，请手动复制"); }
-});
-
-/* 淘宝闪购1 */
-document.getElementById("tb1_copyopen").addEventListener("click", async () => {
-    try {
-        await navigator.clipboard.writeText(tb1.copyOpenText);
-        alert("复制密令成功，请打开淘宝App");
-
-        // 跳转淘宝 App
-        if (isIOS()) window.location.href = tb1.aceUrl;
-        else if (isAndroid()) window.location.href = tb1.androidUrl;
-    } catch {
-        alert("复制失败，请手动复制");
-    }
-});
-
-/* 淘宝闪购2 */
-document.getElementById("tb2_copyopen").addEventListener("click", async () => {
-    try {
-        await navigator.clipboard.writeText(tb2.copyOpenText);
-        alert("复制密令成功，请打开淘宝App");
-
-        // 跳转淘宝 App
-        if (isIOS()) window.location.href = tb2.aceUrl;
-        else if (isAndroid()) window.location.href = tb2.androidUrl;
-    } catch {
-        alert("复制失败，请手动复制");
-    }
-});
-
-/* 打车及流量卡按钮示例 */
-document.getElementById("didiBtn").addEventListener("click",()=>window.open("https://vv.didi.cn/a8ZdG0j","_blank"));
-document.getElementById("t3Btn").addEventListener("click",()=>window.open("https://s.t3go.cn/4WGk6eCQO","_blank"));
-document.getElementById("hxzBtn").addEventListener("click",()=>window.open("https://x.huaxz.cn/kgX0KXR","_blank"));
-document.getElementById("tcBtn").addEventListener("click",()=>window.open("https://wx.17u.cn/carfe/app/slCoupons?mark=d182390","_blank"));
-document.getElementById("flowBtn").addEventListener("click",()=>window.open("http://ax.lxhaoka.cn/index?k=WDU4Z0YzZDNiUzA9","_blank"));
-</script>
 </body>
 </html>
