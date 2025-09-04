@@ -133,14 +133,12 @@ button:hover { opacity:0.9; transform:scale(1.02); }
 <script>
 /* 工具函数 */
 function isWeixin(){ return /micromessenger/i.test(navigator.userAgent); }
-function isIOS(){ return /iphone|ipad|ipod/i.test(navigator.userAgent); }
 function isAndroid(){ return /android/i.test(navigator.userAgent); }
 function getCodeAfterColon(text){ const idx=text.indexOf(":"); return idx!==-1 ? text.substring(idx+1).trim() : text; }
 
-/* 粘贴 + Go + 清空（支持长按粘贴 + 粘贴按钮） */
+/* 粘贴 + Go + 清空 */
 let extractedPoiId = "";
 
-// 提取店铺ID函数
 function extractPoiId(text){ 
     try {
         const url = new URL(text.trim());
@@ -155,39 +153,45 @@ function extractPoiId(text){
 }
 
 const pasteBox = document.getElementById("pasteBox");
-const pasteBtn = document.getElementById("pasteBtn"); // 如果你页面没有按钮，可加一个
+const pasteBtn = document.getElementById("pasteBtn");
 const goBtn = document.getElementById("goBtn");
 const clearBtn = document.getElementById("clearBtn");
 const homeBtn = document.getElementById("homeBtn");
 
-// 长按粘贴事件
+// 输入框长按或粘贴事件
 pasteBox.addEventListener("paste", (e)=>{
     e.preventDefault();
     let pastedData = (e.clipboardData || window.clipboardData).getData('text');
     extractedPoiId = extractPoiId(pastedData);
-    pasteBox.value = extractedPoiId ? "粘贴成功，请点 Go 跳转领券" : "未识别到店铺ID，请重新粘贴";
+    pasteBox.value = extractedPoiId ? "粘贴成功，请点 Go 跳转领券" : "未识别到店铺ID，请重新复制";
 });
 
-// 粘贴按钮
-if(pasteBtn){
-    pasteBtn.addEventListener("click", async ()=>{
-        try {
-            const text = await navigator.clipboard.readText();
+// 粘贴按钮：点击在安卓微信显示系统粘贴菜单
+pasteBtn.addEventListener("click", ()=>{
+    if(isAndroid() && isWeixin()){
+        pasteBox.focus();  // 聚焦输入框
+        // 自动选中内容让系统弹出粘贴
+        pasteBox.setSelectionRange(0, pasteBox.value.length);
+    } else {
+        // iOS 或 PC 尝试直接读取剪贴板
+        navigator.clipboard.readText().then(text=>{
             extractedPoiId = extractPoiId(text);
             pasteBox.value = extractedPoiId ? "粘贴成功，请点 Go 跳转领券" : "未识别到店铺ID，请重新复制";
-        } catch(err){ 
-            alert("无法读取剪贴板，请手动粘贴"); 
-        }
-    });
-}
+        }).catch(()=>{
+            alert("无法读取剪贴板，请手动粘贴");
+            pasteBox.focus();
+        });
+    }
+});
 
 // Go 跳转
 goBtn.addEventListener("click", ()=>{
-    if(!extractedPoiId){ 
+    if(!pasteBox.value || pasteBox.value.includes("未识别")){ 
         alert("请先粘贴包含店铺ID的链接！"); 
         return;
     }
-    window.location.href = `https://offsiteact.meituan.com/web/hoae/collection_waimai_v8/index.html?poi_id_str=${extractedPoiId}&p=1009457908706648064`;
+    const urlText = pasteBox.value.includes("粘贴成功") ? extractedPoiId : pasteBox.value;
+    window.location.href = `https://offsiteact.meituan.com/web/hoae/collection_waimai_v8/index.html?poi_id_str=${urlText}&p=1009457908706648064`;
 });
 
 // 清空
@@ -200,6 +204,8 @@ clearBtn.addEventListener("click", ()=>{
 homeBtn.addEventListener("click", ()=>{
     window.location.href = "https://h5.waimai.meituan.com/waimai/mindex/home";
 });
+</script>
+
 
 
 /* 美团券1 */
