@@ -130,6 +130,13 @@ button:hover { opacity:0.9; transform:scale(1.02); }
 </div>
 </div>
 
+<script>
+/* 工具函数 */
+function isWeixin(){ return /micromessenger/i.test(navigator.userAgent); }
+function isAndroid(){ return /android/i.test(navigator.userAgent); }
+function getCodeAfterColon(text){ const idx=text.indexOf(":"); return idx!==-1 ? text.substring(idx+1).trim() : text; }
+
+/* 粘贴 + Go + 清空 */
 let extractedPoiId = "";
 
 function extractPoiId(text){ 
