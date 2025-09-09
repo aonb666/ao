@@ -199,7 +199,7 @@ homeBtn.addEventListener("click", ()=>{
 
 
 /* 美团券1 */
-const coupon1={directUrl:"http://dpurl.cn/dB3Un4Iz", codeText:"美团app搜:傲神666", copyOpenText:"1 %复制信息#% 打开团App http:/¥v8MjgxNzAwZGE¥一起领"};
+const coupon1={directUrl:"http://dpurl.cn/dB3Un4Iz", codeText:"美团app搜:79822", copyOpenText:"1 %复制信息#% 打开团App http:/¥v8MjgxNzAwZGE¥一起领"};
 document.getElementById("coupon1_direct").addEventListener("click",()=>window.open(coupon1.directUrl,"_blank"));
 document.getElementById("coupon1_showcode").addEventListener("click",async()=>{ document.getElementById("coupon1_text").textContent=coupon1.codeText; try{ await navigator.clipboard.writeText(getCodeAfterColon(coupon1.codeText)); alert("复制口令成功，请在美团App顶部搜索"); } catch{ alert("复制口令失败，请手动复制"); }});
 document.getElementById("coupon1_copyopen").addEventListener("click",async()=>{ try{ await navigator.clipboard.writeText(coupon1.copyOpenText); alert("复制密令成功，请打开美团App"); window.location.href="imeituan://"; } catch{ alert("复制失败，请手动复制"); }});
